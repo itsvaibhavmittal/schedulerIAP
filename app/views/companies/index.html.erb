@@ -8,11 +8,13 @@
   <%= link_to 'New Company', new_company_path %>
   &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <%= link_to 'Back', sessions_url %>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <%= link_to 'Delete All Companies', remove_all_companies_path, method: :post, data: { confirm: 'Delete All Company Records?' } %>
 </div>
 <br>
 
 <div style="margin-left:50px; margin-right:50px;">
-<table align="center" border="2px" cellspacing = "0px" bordercolor = "#000000" cellpadding = "4">
+<table class="table table-hover table-bordered" align="center">
   <thead>
   <tr>
     <th>Name</th>
@@ -47,7 +49,7 @@
         <% end %>
         <td><%= link_to 'Show', company %></td>
         <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
 
   <% end %>

@@ -1,0 +1,1816 @@
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "student", "company", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "10:30AM-11:00AM"], ["student", "foo"], ["company", "bar"], ["UIN", "123456789"], ["created_at", "2016-10-20 21:21:19.527108"], ["updated_at", "2016-10-20 21:21:19.527108"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by AppointmentsController#index as HTML
+  Rendered appointments/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 46ms (Views: 29.4ms | ActiveRecord: 0.0ms)
+  [1m[35mAppointment Load (0.4ms)[0m  SELECT "appointments".* FROM "appointments"  ORDER BY "appointments"."section" ASC, "appointments"."time_slot" ASC
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "student", "company", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "10:30AM-11:00AM"], ["student", "foo"], ["company", "bar"], ["UIN", "123456789"], ["created_at", "2016-10-20 21:21:19.581899"], ["updated_at", "2016-10-20 21:21:19.581899"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by AppointmentsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mAppointment Load (0.2ms)[0m  SELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered appointments/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 8ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by AppointmentsController#new as HTML
+  Rendered appointments/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "student", "company", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "10:30AM-11:00AM"], ["student", "foo"], ["company", "bar"], ["UIN", "123456789"], ["created_at", "2016-10-20 21:21:19.597176"], ["updated_at", "2016-10-20 21:21:19.597176"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by AppointmentsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mAppointment Load (0.1ms)[0m  SELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered appointments/edit.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "appointments"[0m
+Processing by AppointmentsController#create as HTML
+  Parameters: {"appointment"=>{"section"=>"Mock_1", "time_slot"=>"10:30AM-11:00AM", "student"=>"foo", "company"=>"bar", "UIN"=>"123456789"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "10:30AM-11:00AM"], ["company", "bar"], ["student", "foo"], ["UIN", "123456789"], ["created_at", "2016-10-20 21:21:19.605876"], ["updated_at", "2016-10-20 21:21:19.605876"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/appointments/4
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "appointments"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+Processing by AppointmentsController#create as HTML
+  Parameters: {"appointment"=>{"section"=>"Mock_1", "time_slot"=>"10:30AM-11:00AM", "student"=>"foo", "company"=>"bar", "UIN"=>"123456789"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "10:30AM-11:00AM"], ["company", "bar"], ["student", "foo"], ["UIN", "123456789"], ["created_at", "2016-10-20 21:21:19.610083"], ["updated_at", "2016-10-20 21:21:19.610083"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/appointments/5
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by AppointmentsController#create as HTML
+  Parameters: {"appointment"=>{"section"=>"Mock_1", "time_slot"=>"10:30AM-11:00AM", "student"=>"foo", "company"=>"bar", "UIN"=>"123456789"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "company", "student", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "10:30AM-11:00AM"], ["company", "bar"], ["student", "foo"], ["UIN", "123456789"], ["created_at", "2016-10-20 21:21:19.614102"], ["updated_at", "2016-10-20 21:21:19.614102"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/appointments/6
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[35mAppointment Load (0.4ms)[0m  SELECT  "appointments".* FROM "appointments"  ORDER BY "appointments"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by AppointmentsController#create as HTML
+  Parameters: {"appointment"=>{"section"=>"Mock_1", "time_slot"=>"10:30AM-11:00AM", "student"=>"foo", "company"=>nil, "UIN"=>nil}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (41.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered appointments/new.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 84ms (Views: 0.3ms | ActiveRecord: 41.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by AppointmentsController#create as HTML
+  Parameters: {"appointment"=>{"section"=>"Mock_1", "time_slot"=>"10:30AM-11:00AM", "student"=>"foo", "company"=>nil, "UIN"=>nil}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered appointments/new.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "student", "company", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "10:30AM-11:00AM"], ["student", "foo"], ["company", "bar"], ["UIN", "123456789"], ["created_at", "2016-10-20 21:21:19.707060"], ["updated_at", "2016-10-20 21:21:19.707060"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by AppointmentsController#update as HTML
+  Parameters: {"appointment"=>{"section"=>"Mock_1", "time_slot"=>"10:30AM-11:00AM", "student"=>"foo", "company"=>"bar", "UIN"=>"123456789"}, "id"=>"7"}
+  [1m[35mAppointment Load (0.2ms)[0m  SELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/appointments/7
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+  [1m[36mAppointment Load (0.1ms)[0m  [1mSELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mAppointment Load (0.1ms)[0m  SELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "student", "company", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "10:30AM-11:00AM"], ["student", "foo"], ["company", "bar"], ["UIN", "123456789"], ["created_at", "2016-10-20 21:21:19.712724"], ["updated_at", "2016-10-20 21:21:19.712724"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by AppointmentsController#update as HTML
+  Parameters: {"appointment"=>{"section"=>"Mock_1", "time_slot"=>"10:30AM-11:00AM", "student"=>"foo", "company"=>"bar", "UIN"=>"123456789"}, "id"=>"8"}
+  [1m[35mAppointment Load (0.1ms)[0m  SELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/appointments/8
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "student", "company", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "10:30AM-11:00AM"], ["student", "foo"], ["company", "bar"], ["UIN", "123456789"], ["created_at", "2016-10-20 21:21:19.717122"], ["updated_at", "2016-10-20 21:21:19.717122"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by AppointmentsController#update as HTML
+  Parameters: {"appointment"=>{"section"=>"Mock_1", "time_slot"=>"10:30AM-11:00AM", "student"=>"foo", "company"=>"bar", "UIN"=>"123456789"}, "id"=>"9"}
+  [1m[35mAppointment Load (0.1ms)[0m  SELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/appointments/9
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "student", "company", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "10:30AM-11:00AM"], ["student", "foo"], ["company", "bar"], ["UIN", "123456789"], ["created_at", "2016-10-20 21:21:19.721528"], ["updated_at", "2016-10-20 21:21:19.721528"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by AppointmentsController#update as HTML
+  Parameters: {"appointment"=>{"section"=>"Mock_1", "time_slot"=>"10:30AM-11:00AM", "student"=>"foo", "company"=>nil, "UIN"=>nil}, "id"=>"10"}
+  [1m[35mAppointment Load (0.1ms)[0m  SELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered appointments/edit.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "student", "company", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "10:30AM-11:00AM"], ["student", "foo"], ["company", "bar"], ["UIN", "123456789"], ["created_at", "2016-10-20 21:21:19.726389"], ["updated_at", "2016-10-20 21:21:19.726389"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by AppointmentsController#update as HTML
+  Parameters: {"appointment"=>{"section"=>"Mock_1", "time_slot"=>"10:30AM-11:00AM", "student"=>"foo", "company"=>nil, "UIN"=>nil}, "id"=>"11"}
+  [1m[35mAppointment Load (0.1ms)[0m  SELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered appointments/edit.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "appointments" ("section", "time_slot", "student", "company", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["section", "Mock_1"], ["time_slot", "10:30AM-11:00AM"], ["student", "foo"], ["company", "bar"], ["UIN", "123456789"], ["created_at", "2016-10-20 21:21:19.731311"], ["updated_at", "2016-10-20 21:21:19.731311"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "appointments"
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mAppointment Load (0.1ms)[0m  [1mSELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1[0m  [["id", 12]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "appointments" WHERE "appointments"."id" = $1[0m  [["id", 12]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/appointments
+Completed 302 Found in 1ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "appointments"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "appointments" ("section", "time_slot", "student", "company", "UIN", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["section", "Mock_1"], ["time_slot", "10:30AM-11:00AM"], ["student", "foo"], ["company", "bar"], ["UIN", "123456789"], ["created_at", "2016-10-20 21:21:19.736280"], ["updated_at", "2016-10-20 21:21:19.736280"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by AppointmentsController#destroy as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mAppointment Load (0.1ms)[0m  [1mSELECT  "appointments".* FROM "appointments" WHERE "appointments"."id" = $1 LIMIT 1[0m  [["id", 13]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "appointments" WHERE "appointments"."id" = $1[0m  [["id", 13]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/appointments
+Completed 302 Found in 1ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCompany Exists (0.4ms)[0m  SELECT  1 AS one FROM "companies" WHERE LOWER("companies"."contact_email") = LOWER('string@da.edu') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "companies" ("name", "contact_person", "contact_email", "sponsor_level", "citizenship", "job_type", "student_level", "rep_1", "rep_2", "rep_3", "rep_4", "rep_5", "rep_6", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["name", "john"], ["contact_person", "string"], ["contact_email", "string@da.edu"], ["sponsor_level", "gold"], ["citizenship", "t"], ["job_type", "Internship"], ["student_level", "---\n- B.S\n"], ["rep_1", "string"], ["rep_2", "string"], ["rep_3", "string"], ["rep_4", "string"], ["rep_5", "string"], ["rep_6", "string"], ["created_at", "2016-10-20 21:21:19.764120"], ["updated_at", "2016-10-20 21:21:19.764120"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by CompaniesController#index as HTML
+  Rendered companies/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 6ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies"  ORDER BY "companies"."name" ASC[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCompany Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "companies" WHERE LOWER("companies"."contact_email") = LOWER('string@da.edu') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "companies" ("name", "contact_person", "contact_email", "sponsor_level", "citizenship", "job_type", "student_level", "rep_1", "rep_2", "rep_3", "rep_4", "rep_5", "rep_6", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"  [["name", "john"], ["contact_person", "string"], ["contact_email", "string@da.edu"], ["sponsor_level", "gold"], ["citizenship", "t"], ["job_type", "Internship"], ["student_level", "---\n- B.S\n"], ["rep_1", "string"], ["rep_2", "string"], ["rep_3", "string"], ["rep_4", "string"], ["rep_5", "string"], ["rep_6", "string"], ["created_at", "2016-10-20 21:21:19.776154"], ["updated_at", "2016-10-20 21:21:19.776154"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCompany Load (0.2ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCompanyevent Load (0.1ms)[0m  [1mSELECT "companyevents".* FROM "companyevents" WHERE "companyevents"."company_id" = $1[0m  [["company_id", 2]]
+Redirected to http://test.host/sessions/new
+Completed 302 Found in 13ms (ActiveRecord: 0.8ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+Processing by CompaniesController#new as HTML
+  [1m[35m (0.2ms)[0m  SELECT "events"."id", "events"."name", "events"."event_date", "events"."start_time", "events"."end_time" FROM "events" WHERE (for_company = true)
+  Rendered companies/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 17ms (Views: 12.6ms | ActiveRecord: 0.8ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCompany Exists (0.2ms)[0m  SELECT  1 AS one FROM "companies" WHERE LOWER("companies"."contact_email") = LOWER('string@da.edu') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "companies" ("name", "contact_person", "contact_email", "sponsor_level", "citizenship", "job_type", "student_level", "rep_1", "rep_2", "rep_3", "rep_4", "rep_5", "rep_6", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["name", "john"], ["contact_person", "string"], ["contact_email", "string@da.edu"], ["sponsor_level", "gold"], ["citizenship", "t"], ["job_type", "Internship"], ["student_level", "---\n- B.S\n"], ["rep_1", "string"], ["rep_2", "string"], ["rep_3", "string"], ["rep_4", "string"], ["rep_5", "string"], ["rep_6", "string"], ["created_at", "2016-10-20 21:21:19.813828"], ["updated_at", "2016-10-20 21:21:19.813828"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by CompaniesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT "events"."id", "events"."name", "events"."event_date", "events"."start_time", "events"."end_time" FROM "events" WHERE (for_company = true)
+  [1m[36m (0.1ms)[0m  [1mSELECT "events"."id" FROM "events" WHERE (for_company = true)[0m
+  [1m[35mCompanyevent Load (0.1ms)[0m  SELECT "companyevents".* FROM "companyevents" WHERE "companyevents"."company_id" = $1  [["company_id", 3]]
+Redirected to http://test.host/sessions/new
+Completed 302 Found in 2ms (ActiveRecord: 0.6ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "companies"[0m
+Processing by CompaniesController#create as HTML
+  Parameters: {"company"=>{"name"=>"john", "contact_person"=>"string", "contact_email"=>"string@da.edu", "sponsor_level"=>"gold", "citizenship"=>true, "job_type"=>"Internship", "student_level"=>["B.S"], "rep_1"=>"string", "rep_2"=>"string", "rep_3"=>"string", "rep_4"=>"string", "rep_5"=>"string", "rep_6"=>"string"}}
+  [1m[35m (0.2ms)[0m  SELECT "events"."id" FROM "events" WHERE (for_company = true)
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCompany Exists (0.2ms)[0m  SELECT  1 AS one FROM "companies" WHERE LOWER("companies"."contact_email") = LOWER('string@da.edu') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "companies" ("name", "contact_person", "contact_email", "sponsor_level", "citizenship", "job_type", "rep_1", "rep_2", "rep_3", "rep_4", "rep_5", "rep_6", "student_level", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["name", "john"], ["contact_person", "string"], ["contact_email", "string@da.edu"], ["sponsor_level", "gold"], ["citizenship", "t"], ["job_type", "Internship"], ["rep_1", "string"], ["rep_2", "string"], ["rep_3", "string"], ["rep_4", "string"], ["rep_5", "string"], ["rep_6", "string"], ["student_level", "---\n- B.S\n"], ["created_at", "2016-10-20 21:21:19.823388"], ["updated_at", "2016-10-20 21:21:19.823388"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mCompanyevent Load (0.1ms)[0m  [1mSELECT "companyevents".* FROM "companyevents" WHERE "companyevents"."company_id" = $1 AND "companyevents"."company_id" = $2[0m  [["company_id", 4], ["company_id", 4]]
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" INNER JOIN "companyevents" ON "events"."id" = "companyevents"."event_id" WHERE "companyevents"."company_id" = $1  [["company_id", 4]]
+  Rendered user_mailer/com_reg.html.erb within layouts/mailer (16.9ms)
+
+UserMailer#com_reg: processed outbound mail in 129.2ms
+
+Sent mail to string@da.edu (10.7ms)
+Date: Thu, 20 Oct 2016 16:21:19 -0500
+From: 2015_IAP@cse.tamu.edu
+To: string@da.edu
+Message-ID: <5809354fecb37_b6b83ff02043f9f44464c@dhcp-10-202-193-229.tamulink.tamu.edu.mail>
+Subject: Confirmation for Registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Confirmation for Registration.</h1>
+    <p>
+      You have been successfully registered.<br>
+    </p>
+    
+<table>
+  <tbody>
+      <tr>
+        <td>Company Name:</td><td>john</td>
+      </tr>
+      <tr>
+        <td>Contact Person:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Contact Email:</td><td>string@da.edu</td>
+      </tr>
+      <tr>
+        <td>Sponsor level:</td><td>gold</td>
+      </tr>
+      <tr>
+        <td>Citizenship Requirement:</td><td>t</td>
+      </tr>
+      <tr>
+        <td>Position Type:</td><td>Internship</td>
+      </tr>
+      <tr>
+        <td>Degree level Requirement:</td><td>B.S</td>
+      </tr>
+      <tr>
+        <td>Representative 1:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 2:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 3:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 4:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 5:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 6:</td><td>string</td>
+      </tr>
+
+  </tbody>
+</table>
+    <p>Thank you for participating and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+Redirected to http://test.host/companies/4
+Completed 302 Found in 151ms (ActiveRecord: 1.3ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "companies"[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Processing by CompaniesController#create as HTML
+  Parameters: {"company"=>{"name"=>"john", "contact_person"=>"string", "contact_email"=>"string@da.edu", "sponsor_level"=>"gold", "citizenship"=>true, "job_type"=>"Internship", "student_level"=>["B.S"], "rep_1"=>"string", "rep_2"=>"string", "rep_3"=>"string", "rep_4"=>"string", "rep_5"=>"string", "rep_6"=>"string"}}
+  [1m[35m (0.2ms)[0m  SELECT "events"."id" FROM "events" WHERE (for_company = true)
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCompany Exists (0.2ms)[0m  SELECT  1 AS one FROM "companies" WHERE LOWER("companies"."contact_email") = LOWER('string@da.edu') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "companies" ("name", "contact_person", "contact_email", "sponsor_level", "citizenship", "job_type", "rep_1", "rep_2", "rep_3", "rep_4", "rep_5", "rep_6", "student_level", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["name", "john"], ["contact_person", "string"], ["contact_email", "string@da.edu"], ["sponsor_level", "gold"], ["citizenship", "t"], ["job_type", "Internship"], ["rep_1", "string"], ["rep_2", "string"], ["rep_3", "string"], ["rep_4", "string"], ["rep_5", "string"], ["rep_6", "string"], ["student_level", "---\n- B.S\n"], ["created_at", "2016-10-20 21:21:19.977417"], ["updated_at", "2016-10-20 21:21:19.977417"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mCompanyevent Load (0.1ms)[0m  [1mSELECT "companyevents".* FROM "companyevents" WHERE "companyevents"."company_id" = $1 AND "companyevents"."company_id" = $2[0m  [["company_id", 5], ["company_id", 5]]
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" INNER JOIN "companyevents" ON "events"."id" = "companyevents"."event_id" WHERE "companyevents"."company_id" = $1  [["company_id", 5]]
+  Rendered user_mailer/com_reg.html.erb within layouts/mailer (0.8ms)
+
+UserMailer#com_reg: processed outbound mail in 1.5ms
+
+Sent mail to string@da.edu (1.4ms)
+Date: Thu, 20 Oct 2016 16:21:19 -0500
+From: 2015_IAP@cse.tamu.edu
+To: string@da.edu
+Message-ID: <5809354fefa6b_b6b83ff02043f9f4447e3@dhcp-10-202-193-229.tamulink.tamu.edu.mail>
+Subject: Confirmation for Registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Confirmation for Registration.</h1>
+    <p>
+      You have been successfully registered.<br>
+    </p>
+    
+<table>
+  <tbody>
+      <tr>
+        <td>Company Name:</td><td>john</td>
+      </tr>
+      <tr>
+        <td>Contact Person:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Contact Email:</td><td>string@da.edu</td>
+      </tr>
+      <tr>
+        <td>Sponsor level:</td><td>gold</td>
+      </tr>
+      <tr>
+        <td>Citizenship Requirement:</td><td>t</td>
+      </tr>
+      <tr>
+        <td>Position Type:</td><td>Internship</td>
+      </tr>
+      <tr>
+        <td>Degree level Requirement:</td><td>B.S</td>
+      </tr>
+      <tr>
+        <td>Representative 1:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 2:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 3:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 4:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 5:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 6:</td><td>string</td>
+      </tr>
+
+  </tbody>
+</table>
+    <p>Thank you for participating and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+Redirected to http://test.host/companies/5
+Completed 302 Found in 7ms (ActiveRecord: 0.9ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by CompaniesController#create as HTML
+  Parameters: {"company"=>{"name"=>"john", "contact_person"=>"string", "contact_email"=>"string@da.edu", "sponsor_level"=>"gold", "citizenship"=>true, "job_type"=>"Internship", "student_level"=>["B.S"], "rep_1"=>"string", "rep_2"=>"string", "rep_3"=>"string", "rep_4"=>"string", "rep_5"=>"string", "rep_6"=>"string"}}
+  [1m[36m (0.2ms)[0m  [1mSELECT "events"."id" FROM "events" WHERE (for_company = true)[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCompany Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "companies" WHERE LOWER("companies"."contact_email") = LOWER('string@da.edu') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "companies" ("name", "contact_person", "contact_email", "sponsor_level", "citizenship", "job_type", "rep_1", "rep_2", "rep_3", "rep_4", "rep_5", "rep_6", "student_level", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"  [["name", "john"], ["contact_person", "string"], ["contact_email", "string@da.edu"], ["sponsor_level", "gold"], ["citizenship", "t"], ["job_type", "Internship"], ["rep_1", "string"], ["rep_2", "string"], ["rep_3", "string"], ["rep_4", "string"], ["rep_5", "string"], ["rep_6", "string"], ["student_level", "---\n- B.S\n"], ["created_at", "2016-10-20 21:21:19.986954"], ["updated_at", "2016-10-20 21:21:19.986954"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mCompanyevent Load (0.1ms)[0m  SELECT "companyevents".* FROM "companyevents" WHERE "companyevents"."company_id" = $1 AND "companyevents"."company_id" = $2  [["company_id", 6], ["company_id", 6]]
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" INNER JOIN "companyevents" ON "events"."id" = "companyevents"."event_id" WHERE "companyevents"."company_id" = $1[0m  [["company_id", 6]]
+  Rendered user_mailer/com_reg.html.erb within layouts/mailer (0.7ms)
+
+UserMailer#com_reg: processed outbound mail in 1.4ms
+
+Sent mail to string@da.edu (1.4ms)
+Date: Thu, 20 Oct 2016 16:21:19 -0500
+From: 2015_IAP@cse.tamu.edu
+To: string@da.edu
+Message-ID: <5809354ff1ee1_b6b83ff02043f9f444883@dhcp-10-202-193-229.tamulink.tamu.edu.mail>
+Subject: Confirmation for Registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Confirmation for Registration.</h1>
+    <p>
+      You have been successfully registered.<br>
+    </p>
+    
+<table>
+  <tbody>
+      <tr>
+        <td>Company Name:</td><td>john</td>
+      </tr>
+      <tr>
+        <td>Contact Person:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Contact Email:</td><td>string@da.edu</td>
+      </tr>
+      <tr>
+        <td>Sponsor level:</td><td>gold</td>
+      </tr>
+      <tr>
+        <td>Citizenship Requirement:</td><td>t</td>
+      </tr>
+      <tr>
+        <td>Position Type:</td><td>Internship</td>
+      </tr>
+      <tr>
+        <td>Degree level Requirement:</td><td>B.S</td>
+      </tr>
+      <tr>
+        <td>Representative 1:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 2:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 3:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 4:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 5:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 6:</td><td>string</td>
+      </tr>
+
+  </tbody>
+</table>
+    <p>Thank you for participating and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+Redirected to http://test.host/companies/6
+Completed 302 Found in 7ms (ActiveRecord: 0.9ms)
+  [1m[35mCompany Load (0.2ms)[0m  SELECT  "companies".* FROM "companies"  ORDER BY "companies"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by CompaniesController#create as HTML
+  Parameters: {"company"=>{"name"=>nil, "contact_person"=>"string", "contact_email"=>"stedu", "sponsor_level"=>"gold", "citizenship"=>true}}
+  [1m[36m (0.1ms)[0m  [1mSELECT "events"."id" FROM "events" WHERE (for_company = true)[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCompany Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "companies" WHERE LOWER("companies"."contact_email") = LOWER('stedu') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT "events"."id", "events"."name", "events"."event_date", "events"."start_time", "events"."end_time" FROM "events" WHERE (for_company = true)[0m
+  Rendered companies/new.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Processing by CompaniesController#create as HTML
+  Parameters: {"company"=>{"name"=>nil, "contact_person"=>"string", "contact_email"=>"stedu", "sponsor_level"=>"gold", "citizenship"=>true}}
+  [1m[35m (0.2ms)[0m  SELECT "events"."id" FROM "events" WHERE (for_company = true)
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCompany Exists (0.2ms)[0m  SELECT  1 AS one FROM "companies" WHERE LOWER("companies"."contact_email") = LOWER('stedu') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT "events"."id", "events"."name", "events"."event_date", "events"."start_time", "events"."end_time" FROM "events" WHERE (for_company = true)
+  Rendered companies/new.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCompany Exists (0.2ms)[0m  SELECT  1 AS one FROM "companies" WHERE LOWER("companies"."contact_email") = LOWER('string@da.edu') LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "companies" ("name", "contact_person", "contact_email", "sponsor_level", "citizenship", "job_type", "student_level", "rep_1", "rep_2", "rep_3", "rep_4", "rep_5", "rep_6", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["name", "john"], ["contact_person", "string"], ["contact_email", "string@da.edu"], ["sponsor_level", "gold"], ["citizenship", "t"], ["job_type", "Internship"], ["student_level", "---\n- B.S\n"], ["rep_1", "string"], ["rep_2", "string"], ["rep_3", "string"], ["rep_4", "string"], ["rep_5", "string"], ["rep_6", "string"], ["created_at", "2016-10-20 21:21:20.006318"], ["updated_at", "2016-10-20 21:21:20.006318"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by CompaniesController#update as HTML
+  Parameters: {"company"=>{"name"=>"john", "contact_person"=>"string", "contact_email"=>"string@da.edu", "sponsor_level"=>"gold", "citizenship"=>"true", "job_type"=>"Internship", "student_level"=>["B.S"], "rep_1"=>"string", "rep_2"=>"string", "rep_3"=>"string", "rep_4"=>"string", "rep_5"=>"string", "rep_6"=>"string"}, "id"=>"7"}
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCompany Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "companies" WHERE (LOWER("companies"."contact_email") = LOWER('string@da.edu') AND "companies"."id" != 7) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "companies" SET "citizenship" = $1, "updated_at" = $2 WHERE "companies"."id" = $3  [["citizenship", "true"], ["updated_at", "2016-10-20 21:21:20.011470"], ["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT "events"."id" FROM "events" WHERE (for_company = true)
+  [1m[36mCompanyevent Load (0.1ms)[0m  [1mSELECT "companyevents".* FROM "companyevents" WHERE "companyevents"."company_id" = $1 AND "companyevents"."company_id" = $2[0m  [["company_id", 7], ["company_id", 7]]
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" INNER JOIN "companyevents" ON "events"."id" = "companyevents"."event_id" WHERE "companyevents"."company_id" = $1  [["company_id", 7]]
+  Rendered user_mailer/com_reg.html.erb within layouts/mailer (0.7ms)
+
+UserMailer#com_reg: processed outbound mail in 1.5ms
+
+Sent mail to string@da.edu (1.4ms)
+Date: Thu, 20 Oct 2016 16:21:20 -0500
+From: 2015_IAP@cse.tamu.edu
+To: string@da.edu
+Message-ID: <580935503fe5_b6b83ff02043f9f44499e@dhcp-10-202-193-229.tamulink.tamu.edu.mail>
+Subject: Confirmation for Registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Confirmation for Registration.</h1>
+    <p>
+      You have been successfully registered.<br>
+    </p>
+    
+<table>
+  <tbody>
+      <tr>
+        <td>Company Name:</td><td>john</td>
+      </tr>
+      <tr>
+        <td>Contact Person:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Contact Email:</td><td>string@da.edu</td>
+      </tr>
+      <tr>
+        <td>Sponsor level:</td><td>gold</td>
+      </tr>
+      <tr>
+        <td>Citizenship Requirement:</td><td>true</td>
+      </tr>
+      <tr>
+        <td>Position Type:</td><td>Internship</td>
+      </tr>
+      <tr>
+        <td>Degree level Requirement:</td><td>B.S</td>
+      </tr>
+      <tr>
+        <td>Representative 1:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 2:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 3:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 4:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 5:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 6:</td><td>string</td>
+      </tr>
+
+  </tbody>
+</table>
+    <p>Thank you for participating and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+Redirected to http://test.host/companies/7
+Completed 302 Found in 9ms (ActiveRecord: 1.2ms)
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCompany Exists (0.1ms)[0m  SELECT  1 AS one FROM "companies" WHERE LOWER("companies"."contact_email") = LOWER('string@da.edu') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "companies" ("name", "contact_person", "contact_email", "sponsor_level", "citizenship", "job_type", "student_level", "rep_1", "rep_2", "rep_3", "rep_4", "rep_5", "rep_6", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["name", "john"], ["contact_person", "string"], ["contact_email", "string@da.edu"], ["sponsor_level", "gold"], ["citizenship", "t"], ["job_type", "Internship"], ["student_level", "---\n- B.S\n"], ["rep_1", "string"], ["rep_2", "string"], ["rep_3", "string"], ["rep_4", "string"], ["rep_5", "string"], ["rep_6", "string"], ["created_at", "2016-10-20 21:21:20.021586"], ["updated_at", "2016-10-20 21:21:20.021586"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by CompaniesController#update as HTML
+  Parameters: {"company"=>{"name"=>"john", "contact_person"=>"string", "contact_email"=>"string@da.edu", "sponsor_level"=>"gold", "citizenship"=>true, "job_type"=>"Internship", "student_level"=>["B.S"], "rep_1"=>"string", "rep_2"=>"string", "rep_3"=>"string", "rep_4"=>"string", "rep_5"=>"string", "rep_6"=>"string"}, "id"=>"8"}
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCompany Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "companies" WHERE (LOWER("companies"."contact_email") = LOWER('string@da.edu') AND "companies"."id" != 8) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT "events"."id" FROM "events" WHERE (for_company = true)[0m
+  [1m[35mCompanyevent Load (0.1ms)[0m  SELECT "companyevents".* FROM "companyevents" WHERE "companyevents"."company_id" = $1 AND "companyevents"."company_id" = $2  [["company_id", 8], ["company_id", 8]]
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" INNER JOIN "companyevents" ON "events"."id" = "companyevents"."event_id" WHERE "companyevents"."company_id" = $1[0m  [["company_id", 8]]
+  Rendered user_mailer/com_reg.html.erb within layouts/mailer (0.7ms)
+
+UserMailer#com_reg: processed outbound mail in 1.4ms
+
+Sent mail to string@da.edu (1.4ms)
+Date: Thu, 20 Oct 2016 16:21:20 -0500
+From: 2015_IAP@cse.tamu.edu
+To: string@da.edu
+Message-ID: <58093550736d_b6b83ff02043f9f44506e@dhcp-10-202-193-229.tamulink.tamu.edu.mail>
+Subject: Confirmation for Registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Confirmation for Registration.</h1>
+    <p>
+      You have been successfully registered.<br>
+    </p>
+    
+<table>
+  <tbody>
+      <tr>
+        <td>Company Name:</td><td>john</td>
+      </tr>
+      <tr>
+        <td>Contact Person:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Contact Email:</td><td>string@da.edu</td>
+      </tr>
+      <tr>
+        <td>Sponsor level:</td><td>gold</td>
+      </tr>
+      <tr>
+        <td>Citizenship Requirement:</td><td>t</td>
+      </tr>
+      <tr>
+        <td>Position Type:</td><td>Internship</td>
+      </tr>
+      <tr>
+        <td>Degree level Requirement:</td><td>B.S</td>
+      </tr>
+      <tr>
+        <td>Representative 1:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 2:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 3:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 4:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 5:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 6:</td><td>string</td>
+      </tr>
+
+  </tbody>
+</table>
+    <p>Thank you for participating and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+Redirected to http://test.host/companies/8
+Completed 302 Found in 7ms (ActiveRecord: 0.9ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCompany Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "companies" WHERE LOWER("companies"."contact_email") = LOWER('string@da.edu') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "companies" ("name", "contact_person", "contact_email", "sponsor_level", "citizenship", "job_type", "student_level", "rep_1", "rep_2", "rep_3", "rep_4", "rep_5", "rep_6", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"  [["name", "john"], ["contact_person", "string"], ["contact_email", "string@da.edu"], ["sponsor_level", "gold"], ["citizenship", "t"], ["job_type", "Internship"], ["student_level", "---\n- B.S\n"], ["rep_1", "string"], ["rep_2", "string"], ["rep_3", "string"], ["rep_4", "string"], ["rep_5", "string"], ["rep_6", "string"], ["created_at", "2016-10-20 21:21:20.033390"], ["updated_at", "2016-10-20 21:21:20.033390"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by CompaniesController#update as HTML
+  Parameters: {"company"=>{"name"=>"john", "contact_person"=>"string", "contact_email"=>"string@da.edu", "sponsor_level"=>"gold", "citizenship"=>true, "job_type"=>"Internship", "student_level"=>["B.S"], "rep_1"=>"string", "rep_2"=>"string", "rep_3"=>"string", "rep_4"=>"string", "rep_5"=>"string", "rep_6"=>"string"}, "id"=>"9"}
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCompany Exists (0.2ms)[0m  SELECT  1 AS one FROM "companies" WHERE (LOWER("companies"."contact_email") = LOWER('string@da.edu') AND "companies"."id" != 9) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT "events"."id" FROM "events" WHERE (for_company = true)
+  [1m[36mCompanyevent Load (0.1ms)[0m  [1mSELECT "companyevents".* FROM "companyevents" WHERE "companyevents"."company_id" = $1 AND "companyevents"."company_id" = $2[0m  [["company_id", 9], ["company_id", 9]]
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" INNER JOIN "companyevents" ON "events"."id" = "companyevents"."event_id" WHERE "companyevents"."company_id" = $1  [["company_id", 9]]
+  Rendered user_mailer/com_reg.html.erb within layouts/mailer (0.7ms)
+
+UserMailer#com_reg: processed outbound mail in 1.4ms
+
+Sent mail to string@da.edu (1.4ms)
+Date: Thu, 20 Oct 2016 16:21:20 -0500
+From: 2015_IAP@cse.tamu.edu
+To: string@da.edu
+Message-ID: <58093550a199_b6b83ff02043f9f4451f9@dhcp-10-202-193-229.tamulink.tamu.edu.mail>
+Subject: Confirmation for Registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Confirmation for Registration.</h1>
+    <p>
+      You have been successfully registered.<br>
+    </p>
+    
+<table>
+  <tbody>
+      <tr>
+        <td>Company Name:</td><td>john</td>
+      </tr>
+      <tr>
+        <td>Contact Person:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Contact Email:</td><td>string@da.edu</td>
+      </tr>
+      <tr>
+        <td>Sponsor level:</td><td>gold</td>
+      </tr>
+      <tr>
+        <td>Citizenship Requirement:</td><td>t</td>
+      </tr>
+      <tr>
+        <td>Position Type:</td><td>Internship</td>
+      </tr>
+      <tr>
+        <td>Degree level Requirement:</td><td>B.S</td>
+      </tr>
+      <tr>
+        <td>Representative 1:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 2:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 3:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 4:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 5:</td><td>string</td>
+      </tr>
+      <tr>
+        <td>Representative 6:</td><td>string</td>
+      </tr>
+
+  </tbody>
+</table>
+    <p>Thank you for participating and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+Redirected to http://test.host/companies/9
+Completed 302 Found in 7ms (ActiveRecord: 0.9ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCompany Exists (0.2ms)[0m  SELECT  1 AS one FROM "companies" WHERE LOWER("companies"."contact_email") = LOWER('string@da.edu') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "companies" ("name", "contact_person", "contact_email", "sponsor_level", "citizenship", "job_type", "student_level", "rep_1", "rep_2", "rep_3", "rep_4", "rep_5", "rep_6", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["name", "john"], ["contact_person", "string"], ["contact_email", "string@da.edu"], ["sponsor_level", "gold"], ["citizenship", "t"], ["job_type", "Internship"], ["student_level", "---\n- B.S\n"], ["rep_1", "string"], ["rep_2", "string"], ["rep_3", "string"], ["rep_4", "string"], ["rep_5", "string"], ["rep_6", "string"], ["created_at", "2016-10-20 21:21:20.045341"], ["updated_at", "2016-10-20 21:21:20.045341"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by CompaniesController#update as HTML
+  Parameters: {"company"=>{"name"=>nil, "contact_person"=>"string", "contact_email"=>"stedu", "sponsor_level"=>"gold", "citizenship"=>true}, "id"=>"10"}
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCompany Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "companies" WHERE (LOWER("companies"."contact_email") = LOWER('stedu') AND "companies"."id" != 10) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT "events"."id", "events"."name", "events"."event_date", "events"."start_time", "events"."end_time" FROM "events" WHERE (for_company = true)[0m
+  [1m[35mCompanyevent Load (0.1ms)[0m  SELECT "companyevents".* FROM "companyevents" WHERE "companyevents"."company_id" = $1  [["company_id", 10]]
+  Rendered companies/edit.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 5ms (Views: 2.1ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCompany Exists (0.2ms)[0m  SELECT  1 AS one FROM "companies" WHERE LOWER("companies"."contact_email") = LOWER('string@da.edu') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "companies" ("name", "contact_person", "contact_email", "sponsor_level", "citizenship", "job_type", "student_level", "rep_1", "rep_2", "rep_3", "rep_4", "rep_5", "rep_6", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["name", "john"], ["contact_person", "string"], ["contact_email", "string@da.edu"], ["sponsor_level", "gold"], ["citizenship", "t"], ["job_type", "Internship"], ["student_level", "---\n- B.S\n"], ["rep_1", "string"], ["rep_2", "string"], ["rep_3", "string"], ["rep_4", "string"], ["rep_5", "string"], ["rep_6", "string"], ["created_at", "2016-10-20 21:21:20.055516"], ["updated_at", "2016-10-20 21:21:20.055516"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by CompaniesController#update as HTML
+  Parameters: {"company"=>{"name"=>nil, "contact_person"=>"string", "contact_email"=>"stedu", "sponsor_level"=>"gold", "citizenship"=>true}, "id"=>"11"}
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCompany Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "companies" WHERE (LOWER("companies"."contact_email") = LOWER('stedu') AND "companies"."id" != 11) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT "events"."id", "events"."name", "events"."event_date", "events"."start_time", "events"."end_time" FROM "events" WHERE (for_company = true)[0m
+  [1m[35mCompanyevent Load (0.1ms)[0m  SELECT "companyevents".* FROM "companyevents" WHERE "companyevents"."company_id" = $1  [["company_id", 11]]
+  Rendered companies/edit.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mCompany Exists (0.2ms)[0m  SELECT  1 AS one FROM "companies" WHERE LOWER("companies"."contact_email") = LOWER('string@da.edu') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "companies" ("name", "contact_person", "contact_email", "sponsor_level", "citizenship", "job_type", "student_level", "rep_1", "rep_2", "rep_3", "rep_4", "rep_5", "rep_6", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"[0m  [["name", "john"], ["contact_person", "string"], ["contact_email", "string@da.edu"], ["sponsor_level", "gold"], ["citizenship", "t"], ["job_type", "Internship"], ["student_level", "---\n- B.S\n"], ["rep_1", "string"], ["rep_2", "string"], ["rep_3", "string"], ["rep_4", "string"], ["rep_5", "string"], ["rep_6", "string"], ["created_at", "2016-10-20 21:21:20.064202"], ["updated_at", "2016-10-20 21:21:20.064202"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "companies"[0m
+Processing by CompaniesController#destroy as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 12]]
+  [1m[36mCompanyevent Load (0.1ms)[0m  [1mSELECT "companyevents".* FROM "companyevents" WHERE "companyevents"."company_id" = $1[0m  [["company_id", 12]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "companies" WHERE "companies"."id" = $1[0m  [["id", 12]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  Rendered user_mailer/com_del.html.erb within layouts/mailer (0.3ms)
+
+UserMailer#com_del: processed outbound mail in 8.5ms
+
+Sent mail to string@da.edu (1.4ms)
+Date: Thu, 20 Oct 2016 16:21:20 -0500
+From: 2015_IAP@cse.tamu.edu
+To: string@da.edu
+Message-ID: <5809355012f5d_b6b83ff02043f9f44524e@dhcp-10-202-193-229.tamulink.tamu.edu.mail>
+Subject: Registration Cancelled
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Registration Cancelled.</h1>
+    <p>
+      Your registration has been cancelled. Please contact the Coordinator if you did not place this request.<br>
+    </p>
+    <p>Thank you for participating and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+Redirected to http://test.host/companies
+Completed 302 Found in 12ms (ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "companies"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mCompany Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "companies" WHERE LOWER("companies"."contact_email") = LOWER('string@da.edu') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "companies" ("name", "contact_person", "contact_email", "sponsor_level", "citizenship", "job_type", "student_level", "rep_1", "rep_2", "rep_3", "rep_4", "rep_5", "rep_6", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"  [["name", "john"], ["contact_person", "string"], ["contact_email", "string@da.edu"], ["sponsor_level", "gold"], ["citizenship", "t"], ["job_type", "Internship"], ["student_level", "---\n- B.S\n"], ["rep_1", "string"], ["rep_2", "string"], ["rep_3", "string"], ["rep_4", "string"], ["rep_5", "string"], ["rep_6", "string"], ["created_at", "2016-10-20 21:21:20.081733"], ["updated_at", "2016-10-20 21:21:20.081733"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by CompaniesController#destroy as HTML
+  Parameters: {"id"=>"13"}
+  [1m[35mCompany Load (0.1ms)[0m  SELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT 1  [["id", 13]]
+  [1m[36mCompanyevent Load (0.1ms)[0m  [1mSELECT "companyevents".* FROM "companyevents" WHERE "companyevents"."company_id" = $1[0m  [["company_id", 13]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "companies" WHERE "companies"."id" = $1[0m  [["id", 13]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  Rendered user_mailer/com_del.html.erb within layouts/mailer (0.0ms)
+
+UserMailer#com_del: processed outbound mail in 0.7ms
+
+Sent mail to string@da.edu (1.3ms)
+Date: Thu, 20 Oct 2016 16:21:20 -0500
+From: 2015_IAP@cse.tamu.edu
+To: string@da.edu
+Message-ID: <580935501534d_b6b83ff02043f9f4453d8@dhcp-10-202-193-229.tamulink.tamu.edu.mail>
+Subject: Registration Cancelled
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Registration Cancelled.</h1>
+    <p>
+      Your registration has been cancelled. Please contact the Coordinator if you did not place this request.<br>
+    </p>
+    <p>Thank you for participating and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+Redirected to http://test.host/companies
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mEvent Exists (0.2ms)[0m  SELECT  1 AS one FROM "events" WHERE "events"."name" = 'Mock_1' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("name", "event_date", "start_time", "end_time", "max_students", "timeslot_duration") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Mock_1"], ["event_date", "2015-09-09"], ["start_time", "2015-09-09 10:00:00.000000"], ["end_time", "2015-09-09 12:00:00.000000"], ["max_students", 28], ["timeslot_duration", 20]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events"  ORDER BY "events"."event_date" ASC, "events"."name" ASC[0m
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE "timeslots"."event_id" = $1  ORDER BY "timeslots"."start_time" ASC  [["event_id", 1]]
+  Rendered events/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 8ms (Views: 3.4ms | ActiveRecord: 0.9ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mEvent Exists (0.2ms)[0m  SELECT  1 AS one FROM "events" WHERE "events"."name" = 'Mock_1' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "events" ("name", "event_date", "start_time", "end_time", "max_students", "timeslot_duration") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Mock_1"], ["event_date", "2015-09-09"], ["start_time", "2015-09-09 10:00:00.000000"], ["end_time", "2015-09-09 12:00:00.000000"], ["max_students", 28], ["timeslot_duration", 20]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mTimeslot Load (0.1ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE "timeslots"."event_id" = $1  ORDER BY "timeslots"."start_time" ASC  [["event_id", 2]]
+  Rendered events/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by EventsController#new as HTML
+  Rendered events/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mEvent Exists (0.1ms)[0m  SELECT  1 AS one FROM "events" WHERE "events"."name" = 'Mock_1' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "events" ("name", "event_date", "start_time", "end_time", "max_students", "timeslot_duration") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Mock_1"], ["event_date", "2015-09-09"], ["start_time", "2015-09-09 10:00:00.000000"], ["end_time", "2015-09-09 12:00:00.000000"], ["max_students", 28], ["timeslot_duration", 20]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  Rendered events/edit.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events"
+Processing by EventsController#create as HTML
+  Parameters: {"event"=>{"name"=>"Mock_1", "event_date"=>"2015-09-09", "start_time"=>"2015-09-09T10:00:00+00:00", "end_time"=>"2015-09-09T12:00:00+00:00", "max_students"=>"28", "timeslot_duration"=>"20"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mEvent Exists (0.1ms)[0m  SELECT  1 AS one FROM "events" WHERE "events"."name" = 'Mock_1' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "events" ("name", "event_date", "start_time", "end_time", "max_students", "timeslot_duration") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Mock_1"], ["event_date", "2015-09-09"], ["start_time", "2015-09-09 10:00:00.000000"], ["end_time", "2015-09-09 12:00:00.000000"], ["max_students", 28], ["timeslot_duration", 20]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "timeslots" ("start_time", "end_time", "stunum", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["start_time", "2015-09-09 10:00:00.000000"], ["end_time", "2015-09-09 10:20:00.000000"], ["stunum", 28], ["event_id", 4], ["created_at", "2016-10-20 21:21:20.156299"], ["updated_at", "2016-10-20 21:21:20.156299"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "timeslots" ("start_time", "end_time", "stunum", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["start_time", "2015-09-09 10:20:00.000000"], ["end_time", "2015-09-09 10:40:00.000000"], ["stunum", 28], ["event_id", 4], ["created_at", "2016-10-20 21:21:20.158578"], ["updated_at", "2016-10-20 21:21:20.158578"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "timeslots" ("start_time", "end_time", "stunum", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["start_time", "2015-09-09 10:40:00.000000"], ["end_time", "2015-09-09 11:00:00.000000"], ["stunum", 28], ["event_id", 4], ["created_at", "2016-10-20 21:21:20.160139"], ["updated_at", "2016-10-20 21:21:20.160139"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "timeslots" ("start_time", "end_time", "stunum", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["start_time", "2015-09-09 11:00:00.000000"], ["end_time", "2015-09-09 11:20:00.000000"], ["stunum", 28], ["event_id", 4], ["created_at", "2016-10-20 21:21:20.161725"], ["updated_at", "2016-10-20 21:21:20.161725"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "timeslots" ("start_time", "end_time", "stunum", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["start_time", "2015-09-09 11:20:00.000000"], ["end_time", "2015-09-09 11:40:00.000000"], ["stunum", 28], ["event_id", 4], ["created_at", "2016-10-20 21:21:20.163208"], ["updated_at", "2016-10-20 21:21:20.163208"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "timeslots" ("start_time", "end_time", "stunum", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["start_time", "2015-09-09 11:40:00.000000"], ["end_time", "2015-09-09 12:00:00.000000"], ["stunum", 28], ["event_id", 4], ["created_at", "2016-10-20 21:21:20.164989"], ["updated_at", "2016-10-20 21:21:20.164989"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/events/4
+Completed 302 Found in 24ms (ActiveRecord: 3.1ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+Processing by EventsController#create as HTML
+  Parameters: {"event"=>{"name"=>"Mock_1", "event_date"=>"2015-09-09", "start_time"=>"2015-09-09T10:00:00+00:00", "end_time"=>"2015-09-09T12:00:00+00:00", "max_students"=>"28", "timeslot_duration"=>"20"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mEvent Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "events" WHERE "events"."name" = 'Mock_1' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "events" ("name", "event_date", "start_time", "end_time", "max_students", "timeslot_duration") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["name", "Mock_1"], ["event_date", "2015-09-09"], ["start_time", "2015-09-09 10:00:00.000000"], ["end_time", "2015-09-09 12:00:00.000000"], ["max_students", 28], ["timeslot_duration", 20]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "timeslots" ("start_time", "end_time", "stunum", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["start_time", "2015-09-09 10:00:00.000000"], ["end_time", "2015-09-09 10:20:00.000000"], ["stunum", 28], ["event_id", 5], ["created_at", "2016-10-20 21:21:20.172987"], ["updated_at", "2016-10-20 21:21:20.172987"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "timeslots" ("start_time", "end_time", "stunum", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["start_time", "2015-09-09 10:20:00.000000"], ["end_time", "2015-09-09 10:40:00.000000"], ["stunum", 28], ["event_id", 5], ["created_at", "2016-10-20 21:21:20.174414"], ["updated_at", "2016-10-20 21:21:20.174414"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "timeslots" ("start_time", "end_time", "stunum", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["start_time", "2015-09-09 10:40:00.000000"], ["end_time", "2015-09-09 11:00:00.000000"], ["stunum", 28], ["event_id", 5], ["created_at", "2016-10-20 21:21:20.175788"], ["updated_at", "2016-10-20 21:21:20.175788"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "timeslots" ("start_time", "end_time", "stunum", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["start_time", "2015-09-09 11:00:00.000000"], ["end_time", "2015-09-09 11:20:00.000000"], ["stunum", 28], ["event_id", 5], ["created_at", "2016-10-20 21:21:20.177187"], ["updated_at", "2016-10-20 21:21:20.177187"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "timeslots" ("start_time", "end_time", "stunum", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["start_time", "2015-09-09 11:20:00.000000"], ["end_time", "2015-09-09 11:40:00.000000"], ["stunum", 28], ["event_id", 5], ["created_at", "2016-10-20 21:21:20.178568"], ["updated_at", "2016-10-20 21:21:20.178568"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "timeslots" ("start_time", "end_time", "stunum", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["start_time", "2015-09-09 11:40:00.000000"], ["end_time", "2015-09-09 12:00:00.000000"], ["stunum", 28], ["event_id", 5], ["created_at", "2016-10-20 21:21:20.179933"], ["updated_at", "2016-10-20 21:21:20.179933"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/events/5
+Completed 302 Found in 11ms (ActiveRecord: 2.2ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Processing by EventsController#create as HTML
+  Parameters: {"event"=>{"name"=>"Mock_1", "event_date"=>"2015-09-09", "start_time"=>"2015-09-09T10:00:00+00:00", "end_time"=>"2015-09-09T12:00:00+00:00", "max_students"=>"28", "timeslot_duration"=>"20"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mEvent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "events" WHERE "events"."name" = 'Mock_1' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "events" ("name", "event_date", "start_time", "end_time", "max_students", "timeslot_duration") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["name", "Mock_1"], ["event_date", "2015-09-09"], ["start_time", "2015-09-09 10:00:00.000000"], ["end_time", "2015-09-09 12:00:00.000000"], ["max_students", 28], ["timeslot_duration", 20]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "timeslots" ("start_time", "end_time", "stunum", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["start_time", "2015-09-09 10:00:00.000000"], ["end_time", "2015-09-09 10:20:00.000000"], ["stunum", 28], ["event_id", 6], ["created_at", "2016-10-20 21:21:20.186459"], ["updated_at", "2016-10-20 21:21:20.186459"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "timeslots" ("start_time", "end_time", "stunum", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["start_time", "2015-09-09 10:20:00.000000"], ["end_time", "2015-09-09 10:40:00.000000"], ["stunum", 28], ["event_id", 6], ["created_at", "2016-10-20 21:21:20.187875"], ["updated_at", "2016-10-20 21:21:20.187875"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "timeslots" ("start_time", "end_time", "stunum", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["start_time", "2015-09-09 10:40:00.000000"], ["end_time", "2015-09-09 11:00:00.000000"], ["stunum", 28], ["event_id", 6], ["created_at", "2016-10-20 21:21:20.189296"], ["updated_at", "2016-10-20 21:21:20.189296"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "timeslots" ("start_time", "end_time", "stunum", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["start_time", "2015-09-09 11:00:00.000000"], ["end_time", "2015-09-09 11:20:00.000000"], ["stunum", 28], ["event_id", 6], ["created_at", "2016-10-20 21:21:20.190698"], ["updated_at", "2016-10-20 21:21:20.190698"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "timeslots" ("start_time", "end_time", "stunum", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["start_time", "2015-09-09 11:20:00.000000"], ["end_time", "2015-09-09 11:40:00.000000"], ["stunum", 28], ["event_id", 6], ["created_at", "2016-10-20 21:21:20.192068"], ["updated_at", "2016-10-20 21:21:20.192068"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "timeslots" ("start_time", "end_time", "stunum", "event_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["start_time", "2015-09-09 11:40:00.000000"], ["end_time", "2015-09-09 12:00:00.000000"], ["stunum", 28], ["event_id", 6], ["created_at", "2016-10-20 21:21:20.193461"], ["updated_at", "2016-10-20 21:21:20.193461"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/events/6
+Completed 302 Found in 11ms (ActiveRecord: 2.4ms)
+  [1m[35mEvent Load (0.2ms)[0m  SELECT  "events".* FROM "events"  ORDER BY "events"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by EventsController#create as HTML
+  Parameters: {"event"=>{"name"=>"nil", "event_date"=>"2015-09-09", "start_time"=>"2015-09-09T10:00:00+00:00", "end_time"=>"2015-09-09T12:00:00+00:00", "max_students"=>nil, "timeslot_duration"=>nil}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mEvent Exists (0.2ms)[0m  SELECT  1 AS one FROM "events" WHERE "events"."name" = 'nil' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered events/new.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Processing by EventsController#create as HTML
+  Parameters: {"event"=>{"name"=>"nil", "event_date"=>"2015-09-09", "start_time"=>"2015-09-09T10:00:00+00:00", "end_time"=>"2015-09-09T12:00:00+00:00", "max_students"=>nil, "timeslot_duration"=>nil}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mEvent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "events" WHERE "events"."name" = 'nil' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered events/new.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mEvent Exists (0.2ms)[0m  SELECT  1 AS one FROM "events" WHERE "events"."name" = 'Mock_1' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "events" ("name", "event_date", "start_time", "end_time", "max_students", "timeslot_duration") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Mock_1"], ["event_date", "2015-09-09"], ["start_time", "2015-09-09 10:00:00.000000"], ["end_time", "2015-09-09 12:00:00.000000"], ["max_students", 28], ["timeslot_duration", 20]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by EventsController#update as HTML
+  Parameters: {"event"=>{"name"=>"Mock_1", "event_date"=>"2015-09-09", "start_time"=>"2015-09-09T10:00:00+00:00", "end_time"=>"2015-09-09T12:00:00+00:00", "max_students"=>"28", "timeslot_duration"=>"20"}, "id"=>"7"}
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mEvent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "events" WHERE ("events"."name" = 'Mock_1' AND "events"."id" != 7) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/events/7
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mEvent Load (0.1ms)[0m  SELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mEvent Exists (0.1ms)[0m  SELECT  1 AS one FROM "events" WHERE "events"."name" = 'Mock_1' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "events" ("name", "event_date", "start_time", "end_time", "max_students", "timeslot_duration") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Mock_1"], ["event_date", "2015-09-09"], ["start_time", "2015-09-09 10:00:00.000000"], ["end_time", "2015-09-09 12:00:00.000000"], ["max_students", 28], ["timeslot_duration", 20]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by EventsController#update as HTML
+  Parameters: {"event"=>{"name"=>"Mock_1", "event_date"=>"2015-09-09", "start_time"=>"2015-09-09T10:00:00+00:00", "end_time"=>"2015-09-09T12:00:00+00:00", "max_students"=>"28", "timeslot_duration"=>"20"}, "id"=>"8"}
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mEvent Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "events" WHERE ("events"."name" = 'Mock_1' AND "events"."id" != 8) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/events/8
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mEvent Exists (0.1ms)[0m  SELECT  1 AS one FROM "events" WHERE "events"."name" = 'Mock_1' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "events" ("name", "event_date", "start_time", "end_time", "max_students", "timeslot_duration") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Mock_1"], ["event_date", "2015-09-09"], ["start_time", "2015-09-09 10:00:00.000000"], ["end_time", "2015-09-09 12:00:00.000000"], ["max_students", 28], ["timeslot_duration", 20]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by EventsController#update as HTML
+  Parameters: {"event"=>{"name"=>"Mock_1", "event_date"=>"2015-09-09", "start_time"=>"2015-09-09T10:00:00+00:00", "end_time"=>"2015-09-09T12:00:00+00:00", "max_students"=>"28", "timeslot_duration"=>"20"}, "id"=>"9"}
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mEvent Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "events" WHERE ("events"."name" = 'Mock_1' AND "events"."id" != 9) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/events/9
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mEvent Exists (0.1ms)[0m  SELECT  1 AS one FROM "events" WHERE "events"."name" = 'Mock_1' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "events" ("name", "event_date", "start_time", "end_time", "max_students", "timeslot_duration") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Mock_1"], ["event_date", "2015-09-09"], ["start_time", "2015-09-09 10:00:00.000000"], ["end_time", "2015-09-09 12:00:00.000000"], ["max_students", 28], ["timeslot_duration", 20]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by EventsController#update as HTML
+  Parameters: {"event"=>{"name"=>"nil", "event_date"=>"2015-09-09", "start_time"=>"2015-09-09T10:00:00+00:00", "end_time"=>"2015-09-09T12:00:00+00:00", "max_students"=>nil, "timeslot_duration"=>nil}, "id"=>"10"}
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mEvent Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "events" WHERE ("events"."name" = 'nil' AND "events"."id" != 10) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered events/edit.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mEvent Exists (0.1ms)[0m  SELECT  1 AS one FROM "events" WHERE "events"."name" = 'Mock_1' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "events" ("name", "event_date", "start_time", "end_time", "max_students", "timeslot_duration") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Mock_1"], ["event_date", "2015-09-09"], ["start_time", "2015-09-09 10:00:00.000000"], ["end_time", "2015-09-09 12:00:00.000000"], ["max_students", 28], ["timeslot_duration", 20]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by EventsController#update as HTML
+  Parameters: {"event"=>{"name"=>"nil", "event_date"=>"2015-09-09", "start_time"=>"2015-09-09T10:00:00+00:00", "end_time"=>"2015-09-09T12:00:00+00:00", "max_students"=>nil, "timeslot_duration"=>nil}, "id"=>"11"}
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT 1[0m  [["id", 11]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mEvent Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "events" WHERE ("events"."name" = 'nil' AND "events"."id" != 11) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered events/edit.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mEvent Exists (0.2ms)[0m  SELECT  1 AS one FROM "events" WHERE "events"."name" = 'Mock_1' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "events" ("name", "event_date", "start_time", "end_time", "max_students", "timeslot_duration") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Mock_1"], ["event_date", "2015-09-09"], ["start_time", "2015-09-09 10:00:00.000000"], ["end_time", "2015-09-09 12:00:00.000000"], ["max_students", 28], ["timeslot_duration", 20]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events"[0m
+Processing by EventsController#destroy as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mEvent Load (0.1ms)[0m  SELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT 1  [["id", 12]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mTimeslot Load (0.1ms)[0m  SELECT "timeslots".* FROM "timeslots" WHERE "timeslots"."event_id" = $1  [["event_id", 12]]
+  [1m[36mCompanyevent Load (0.1ms)[0m  [1mSELECT "companyevents".* FROM "companyevents" WHERE "companyevents"."event_id" = $1[0m  [["event_id", 12]]
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "events" WHERE "events"."id" = $1  [["id", 12]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/events
+Completed 302 Found in 3ms (ActiveRecord: 0.8ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events"
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mEvent Exists (0.2ms)[0m  SELECT  1 AS one FROM "events" WHERE "events"."name" = 'Mock_1' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "events" ("name", "event_date", "start_time", "end_time", "max_students", "timeslot_duration") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Mock_1"], ["event_date", "2015-09-09"], ["start_time", "2015-09-09 10:00:00.000000"], ["end_time", "2015-09-09 12:00:00.000000"], ["max_students", 28], ["timeslot_duration", 20]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by EventsController#destroy as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT 1[0m  [["id", 13]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" WHERE "timeslots"."event_id" = $1[0m  [["event_id", 13]]
+  [1m[35mCompanyevent Load (0.1ms)[0m  SELECT "companyevents".* FROM "companyevents" WHERE "companyevents"."event_id" = $1  [["event_id", 13]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 13]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/events
+Completed 302 Found in 2ms (ActiveRecord: 0.8ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mStudent Exists (0.3ms)[0m  SELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('string@ata.edu') LIMIT 1
+  [1m[36mStudent Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."email" = 'string@ata.edu' LIMIT 1[0m
+  [1m[35mStudent Exists (0.1ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."UIN" = '123232123' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Tome"], ["UIN", "123232123"], ["email", "string@ata.edu"], ["US_Citizen", "t"], ["degree", "B.S"], ["position_type", "Internship"], ["created_at", "2016-10-20 21:21:20.258264"], ["updated_at", "2016-10-20 21:21:20.258264"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Redirected to http://test.host/sessions/new
+  [1m[35m (0.1ms)[0m  SELECT "events"."id", "events"."name" FROM "events" WHERE (for_student = true)
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT "students".* FROM "students"  ORDER BY "students"."UIN" ASC[0m
+Completed 302 Found in 4ms (ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Processing by StudentsController#new as HTML
+  [1m[35m (0.1ms)[0m  SELECT "events"."id", "events"."name", "events"."event_date", "events"."start_time", "events"."end_time" FROM "events" WHERE (for_student = true)
+  [1m[36m (0.1ms)[0m  [1mSELECT "events"."id" FROM "events" WHERE (for_student = true)[0m
+  Rendered students/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('string@ata.edu') LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."email" = 'string@ata.edu' LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."UIN" = '123232123' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Tome"], ["UIN", "123232123"], ["email", "string@ata.edu"], ["US_Citizen", "t"], ["degree", "B.S"], ["position_type", "Internship"], ["created_at", "2016-10-20 21:21:20.273555"], ["updated_at", "2016-10-20 21:21:20.273555"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StudentsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1  [["id", 2]]
+Redirected to http://test.host/sessions/new
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "students"[0m
+Processing by StudentsController#create as HTML
+  Parameters: {"student"=>{"name"=>"Tome", "UIN"=>"123232123", "email"=>"string@ata.edu", "US_Citizen"=>true, "degree"=>"B.S", "position_type"=>"Internship"}}
+  [1m[35m (0.2ms)[0m  SELECT "events"."id", "events"."name", "events"."event_date", "events"."start_time", "events"."end_time" FROM "events" WHERE (for_student = true)
+  [1m[36m (0.1ms)[0m  [1mSELECT "events"."id", "events"."name" FROM "events" WHERE (for_student = true)[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('string@ata.edu') LIMIT 1[0m
+  [1m[35mStudent Exists (0.1ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."email" = 'string@ata.edu' LIMIT 1
+  [1m[36mStudent Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."UIN" = '123232123' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Tome"], ["UIN", "123232123"], ["email", "string@ata.edu"], ["US_Citizen", "t"], ["degree", "B.S"], ["position_type", "Internship"], ["created_at", "2016-10-20 21:21:20.281218"], ["updated_at", "2016-10-20 21:21:20.281218"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mTimeslot Load (0.1ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" INNER JOIN "students_timeslots" ON "timeslots"."id" = "students_timeslots"."timeslot_id" WHERE "students_timeslots"."student_id" = $1[0m  [["student_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT "events"."id", "events"."name" FROM "events" WHERE (for_student = true)
+  [1m[36m (0.1ms)[0m  [1mSELECT "events"."id", "events"."name" FROM "events" WHERE (for_student = true)[0m
+  [1m[35mStudent Load (0.1ms)[0m  SELECT "students".* FROM "students"  ORDER BY "students"."UIN" ASC
+Redirected to http://test.host/students/3
+Completed 302 Found in 7ms (ActiveRecord: 1.4ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "students"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+Processing by StudentsController#create as HTML
+  Parameters: {"student"=>{"name"=>"Tome", "UIN"=>"123232123", "email"=>"string@ata.edu", "US_Citizen"=>true, "degree"=>"B.S", "position_type"=>"Internship"}}
+  [1m[35m (0.1ms)[0m  SELECT "events"."id", "events"."name", "events"."event_date", "events"."start_time", "events"."end_time" FROM "events" WHERE (for_student = true)
+  [1m[36m (0.1ms)[0m  [1mSELECT "events"."id", "events"."name" FROM "events" WHERE (for_student = true)[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mStudent Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('string@ata.edu') LIMIT 1[0m
+  [1m[35mStudent Exists (0.1ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."email" = 'string@ata.edu' LIMIT 1
+  [1m[36mStudent Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."UIN" = '123232123' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Tome"], ["UIN", "123232123"], ["email", "string@ata.edu"], ["US_Citizen", "t"], ["degree", "B.S"], ["position_type", "Internship"], ["created_at", "2016-10-20 21:21:20.290761"], ["updated_at", "2016-10-20 21:21:20.290761"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mTimeslot Load (0.1ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" INNER JOIN "students_timeslots" ON "timeslots"."id" = "students_timeslots"."timeslot_id" WHERE "students_timeslots"."student_id" = $1[0m  [["student_id", 4]]
+  [1m[35m (0.1ms)[0m  SELECT "events"."id", "events"."name" FROM "events" WHERE (for_student = true)
+  [1m[36m (0.1ms)[0m  [1mSELECT "events"."id", "events"."name" FROM "events" WHERE (for_student = true)[0m
+  [1m[35mStudent Load (0.1ms)[0m  SELECT "students".* FROM "students"  ORDER BY "students"."UIN" ASC
+Redirected to http://test.host/students/4
+Completed 302 Found in 6ms (ActiveRecord: 1.3ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+Processing by StudentsController#create as HTML
+  Parameters: {"student"=>{"name"=>"Tome", "UIN"=>"123232123", "email"=>"string@ata.edu", "US_Citizen"=>true, "degree"=>"B.S", "position_type"=>"Internship"}}
+  [1m[36m (0.1ms)[0m  [1mSELECT "events"."id", "events"."name", "events"."event_date", "events"."start_time", "events"."end_time" FROM "events" WHERE (for_student = true)[0m
+  [1m[35m (0.1ms)[0m  SELECT "events"."id", "events"."name" FROM "events" WHERE (for_student = true)
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mStudent Exists (0.1ms)[0m  SELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('string@ata.edu') LIMIT 1
+  [1m[36mStudent Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."email" = 'string@ata.edu' LIMIT 1[0m
+  [1m[35mStudent Exists (0.1ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."UIN" = '123232123' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Tome"], ["UIN", "123232123"], ["email", "string@ata.edu"], ["US_Citizen", "t"], ["degree", "B.S"], ["position_type", "Internship"], ["created_at", "2016-10-20 21:21:20.298857"], ["updated_at", "2016-10-20 21:21:20.298857"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" INNER JOIN "students_timeslots" ON "timeslots"."id" = "students_timeslots"."timeslot_id" WHERE "students_timeslots"."student_id" = $1  [["student_id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "events"."id", "events"."name" FROM "events" WHERE (for_student = true)[0m
+  [1m[35m (0.1ms)[0m  SELECT "events"."id", "events"."name" FROM "events" WHERE (for_student = true)
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT "students".* FROM "students"  ORDER BY "students"."UIN" ASC[0m
+Redirected to http://test.host/students/5
+Completed 302 Found in 6ms (ActiveRecord: 1.4ms)
+  [1m[35mStudent Load (0.2ms)[0m  SELECT  "students".* FROM "students"  ORDER BY "students"."id" DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by StudentsController#create as HTML
+  Parameters: {"student"=>{"name"=>"nil", "UIN"=>"nil", "email"=>"string@ata.edu", "US_Citizen"=>true, "degree"=>"B.S", "position_type"=>"Internship"}}
+  [1m[36m (0.2ms)[0m  [1mSELECT "events"."id", "events"."name", "events"."event_date", "events"."start_time", "events"."end_time" FROM "events" WHERE (for_student = true)[0m
+  [1m[35m (0.1ms)[0m  SELECT "events"."id", "events"."name" FROM "events" WHERE (for_student = true)
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('string@ata.edu') LIMIT 1
+  [1m[36mStudent Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."email" = 'string@ata.edu' LIMIT 1[0m
+  [1m[35mStudent Exists (0.1ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."UIN" = 'nil' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT "events"."id" FROM "events" WHERE (for_student = true)
+  Rendered students/new.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.1ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by StudentsController#create as HTML
+  Parameters: {"student"=>{"name"=>"nil", "UIN"=>"nil", "email"=>"string@ata.edu", "US_Citizen"=>true, "degree"=>"B.S", "position_type"=>"Internship"}}
+  [1m[36m (0.2ms)[0m  [1mSELECT "events"."id", "events"."name", "events"."event_date", "events"."start_time", "events"."end_time" FROM "events" WHERE (for_student = true)[0m
+  [1m[35m (0.1ms)[0m  SELECT "events"."id", "events"."name" FROM "events" WHERE (for_student = true)
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('string@ata.edu') LIMIT 1
+  [1m[36mStudent Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."email" = 'string@ata.edu' LIMIT 1[0m
+  [1m[35mStudent Exists (0.1ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."UIN" = 'nil' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SELECT "events"."id" FROM "events" WHERE (for_student = true)
+  Rendered students/new.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.1ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('string@ata.edu') LIMIT 1
+  [1m[36mStudent Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."email" = 'string@ata.edu' LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."UIN" = '123232123' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Tome"], ["UIN", "123232123"], ["email", "string@ata.edu"], ["US_Citizen", "t"], ["degree", "B.S"], ["position_type", "Internship"], ["created_at", "2016-10-20 21:21:20.319525"], ["updated_at", "2016-10-20 21:21:20.319525"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StudentsController#update as HTML
+  Parameters: {"student"=>{"name"=>"Tome", "UIN"=>"123232123", "email"=>"string@ata.edu", "US_Citizen"=>true, "degree"=>"B.S", "position_type"=>"Internship"}, "id"=>"6"}
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.2ms)[0m  SELECT "events"."id", "events"."name", "events"."event_date", "events"."start_time", "events"."end_time" FROM "events" WHERE (for_student = true)
+  [1m[36m (0.1ms)[0m  [1mSELECT "events"."id", "events"."name" FROM "events" WHERE (for_student = true)[0m
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mTimeslot Load (0.2ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" INNER JOIN "students_timeslots" ON "timeslots"."id" = "students_timeslots"."timeslot_id" WHERE "students_timeslots"."student_id" = $1[0m  [["student_id", 6]]
+  [1m[35mTimeslot Load (0.1ms)[0m  SELECT "timeslots".* FROM "timeslots" INNER JOIN "students_timeslots" ON "timeslots"."id" = "students_timeslots"."timeslot_id" WHERE "students_timeslots"."student_id" = $1  [["student_id", 6]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "events"."name" FROM "events" WHERE (for_student = true)[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE (LOWER("students"."email") = LOWER('string@ata.edu') AND "students"."id" != 6) LIMIT 1[0m
+  [1m[35mStudent Exists (0.1ms)[0m  SELECT  1 AS one FROM "students" WHERE ("students"."email" = 'string@ata.edu' AND "students"."id" != 6) LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE ("students"."UIN" = '123232123' AND "students"."id" != 6) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  Rendered user_mailer/stu_reg.html.erb within layouts/mailer (0.6ms)
+
+UserMailer#stu_reg: processed outbound mail in 8.4ms
+
+Sent mail to string@ata.edu (1.6ms)
+Date: Thu, 20 Oct 2016 16:21:20 -0500
+From: 2015_IAP@cse.tamu.edu
+To: string@ata.edu
+Message-ID: <5809355052482_b6b83ff02043f9f44544@dhcp-10-202-193-229.tamulink.tamu.edu.mail>
+Subject: Confirmation for Registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Confirmation for Registration.</h1>
+    <p>
+      You have been successfully registered.<br>
+    </p>
+    
+<table>
+  <tbody>
+      <tr>
+        <td>Name:</td><td>Tome</td>
+      </tr>
+      <tr>
+        <td>UIN:</td><td>123232123</td>
+      </tr>
+      <tr>
+        <td>E-mail:</td><td>string@ata.edu</td>
+      </tr>
+      <tr>
+        <td>US Citizen:</td><td>true</td>
+      </tr>
+      <tr>
+        <td>Degree Level:</td><td>B.S</td>
+      </tr>
+      <tr>
+        <td>Position Type:</td><td>Internship</td>
+      </tr>
+
+      
+
+  </tbody>
+</table>
+    <p> If you need to cancel or add an event, please contact the Coordinator.</p>
+    <p>Thank you for participating  and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mTimeslot Load (0.2ms)[0m  SELECT "timeslots".* FROM "timeslots" INNER JOIN "students_timeslots" ON "timeslots"."id" = "students_timeslots"."timeslot_id" WHERE "students_timeslots"."student_id" = $1  [["student_id", 6]]
+Redirected to http://test.host/students/6
+Completed 302 Found in 18ms (ActiveRecord: 2.1ms)
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mStudent Exists (0.1ms)[0m  SELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('string@ata.edu') LIMIT 1
+  [1m[36mStudent Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."email" = 'string@ata.edu' LIMIT 1[0m
+  [1m[35mStudent Exists (0.1ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."UIN" = '123232123' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Tome"], ["UIN", "123232123"], ["email", "string@ata.edu"], ["US_Citizen", "t"], ["degree", "B.S"], ["position_type", "Internship"], ["created_at", "2016-10-20 21:21:20.343543"], ["updated_at", "2016-10-20 21:21:20.343543"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StudentsController#update as HTML
+  Parameters: {"student"=>{"name"=>"Tome", "UIN"=>"123232123", "email"=>"string@ata.edu", "US_Citizen"=>true, "degree"=>"B.S", "position_type"=>"Internship"}, "id"=>"7"}
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.1ms)[0m  SELECT "events"."id", "events"."name", "events"."event_date", "events"."start_time", "events"."end_time" FROM "events" WHERE (for_student = true)
+  [1m[36m (0.1ms)[0m  [1mSELECT "events"."id", "events"."name" FROM "events" WHERE (for_student = true)[0m
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mTimeslot Load (0.1ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" INNER JOIN "students_timeslots" ON "timeslots"."id" = "students_timeslots"."timeslot_id" WHERE "students_timeslots"."student_id" = $1[0m  [["student_id", 7]]
+  [1m[35mTimeslot Load (0.1ms)[0m  SELECT "timeslots".* FROM "timeslots" INNER JOIN "students_timeslots" ON "timeslots"."id" = "students_timeslots"."timeslot_id" WHERE "students_timeslots"."student_id" = $1  [["student_id", 7]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "events"."name" FROM "events" WHERE (for_student = true)[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mStudent Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE (LOWER("students"."email") = LOWER('string@ata.edu') AND "students"."id" != 7) LIMIT 1[0m
+  [1m[35mStudent Exists (0.1ms)[0m  SELECT  1 AS one FROM "students" WHERE ("students"."email" = 'string@ata.edu' AND "students"."id" != 7) LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE ("students"."UIN" = '123232123' AND "students"."id" != 7) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  Rendered user_mailer/stu_reg.html.erb within layouts/mailer (0.1ms)
+
+UserMailer#stu_reg: processed outbound mail in 0.9ms
+
+Sent mail to string@ata.edu (2.0ms)
+Date: Thu, 20 Oct 2016 16:21:20 -0500
+From: 2015_IAP@cse.tamu.edu
+To: string@ata.edu
+Message-ID: <580935505625c_b6b83ff02043f9f4455fb@dhcp-10-202-193-229.tamulink.tamu.edu.mail>
+Subject: Confirmation for Registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Confirmation for Registration.</h1>
+    <p>
+      You have been successfully registered.<br>
+    </p>
+    
+<table>
+  <tbody>
+      <tr>
+        <td>Name:</td><td>Tome</td>
+      </tr>
+      <tr>
+        <td>UIN:</td><td>123232123</td>
+      </tr>
+      <tr>
+        <td>E-mail:</td><td>string@ata.edu</td>
+      </tr>
+      <tr>
+        <td>US Citizen:</td><td>true</td>
+      </tr>
+      <tr>
+        <td>Degree Level:</td><td>B.S</td>
+      </tr>
+      <tr>
+        <td>Position Type:</td><td>Internship</td>
+      </tr>
+
+      
+
+  </tbody>
+</table>
+    <p> If you need to cancel or add an event, please contact the Coordinator.</p>
+    <p>Thank you for participating  and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mTimeslot Load (0.1ms)[0m  SELECT "timeslots".* FROM "timeslots" INNER JOIN "students_timeslots" ON "timeslots"."id" = "students_timeslots"."timeslot_id" WHERE "students_timeslots"."student_id" = $1  [["student_id", 7]]
+Redirected to http://test.host/students/7
+Completed 302 Found in 10ms (ActiveRecord: 1.4ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('string@ata.edu') LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."email" = 'string@ata.edu' LIMIT 1[0m
+  [1m[35mStudent Exists (0.1ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."UIN" = '123232123' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Tome"], ["UIN", "123232123"], ["email", "string@ata.edu"], ["US_Citizen", "t"], ["degree", "B.S"], ["position_type", "Internship"], ["created_at", "2016-10-20 21:21:20.358854"], ["updated_at", "2016-10-20 21:21:20.358854"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StudentsController#update as HTML
+  Parameters: {"student"=>{"name"=>"Tome", "UIN"=>"123232123", "email"=>"string@ata.edu", "US_Citizen"=>true, "degree"=>"B.S", "position_type"=>"Internship"}, "id"=>"8"}
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35m (0.2ms)[0m  SELECT "events"."id", "events"."name", "events"."event_date", "events"."start_time", "events"."end_time" FROM "events" WHERE (for_student = true)
+  [1m[36m (0.1ms)[0m  [1mSELECT "events"."id", "events"."name" FROM "events" WHERE (for_student = true)[0m
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36mTimeslot Load (0.1ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" INNER JOIN "students_timeslots" ON "timeslots"."id" = "students_timeslots"."timeslot_id" WHERE "students_timeslots"."student_id" = $1[0m  [["student_id", 8]]
+  [1m[35mTimeslot Load (0.1ms)[0m  SELECT "timeslots".* FROM "timeslots" INNER JOIN "students_timeslots" ON "timeslots"."id" = "students_timeslots"."timeslot_id" WHERE "students_timeslots"."student_id" = $1  [["student_id", 8]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "events"."name" FROM "events" WHERE (for_student = true)[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE (LOWER("students"."email") = LOWER('string@ata.edu') AND "students"."id" != 8) LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students" WHERE ("students"."email" = 'string@ata.edu' AND "students"."id" != 8) LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE ("students"."UIN" = '123232123' AND "students"."id" != 8) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  Rendered user_mailer/stu_reg.html.erb within layouts/mailer (0.1ms)
+
+UserMailer#stu_reg: processed outbound mail in 0.9ms
+
+Sent mail to string@ata.edu (1.6ms)
+Date: Thu, 20 Oct 2016 16:21:20 -0500
+From: 2015_IAP@cse.tamu.edu
+To: string@ata.edu
+Message-ID: <5809355059f79_b6b83ff02043f9f44569e@dhcp-10-202-193-229.tamulink.tamu.edu.mail>
+Subject: Confirmation for Registration
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Confirmation for Registration.</h1>
+    <p>
+      You have been successfully registered.<br>
+    </p>
+    
+<table>
+  <tbody>
+      <tr>
+        <td>Name:</td><td>Tome</td>
+      </tr>
+      <tr>
+        <td>UIN:</td><td>123232123</td>
+      </tr>
+      <tr>
+        <td>E-mail:</td><td>string@ata.edu</td>
+      </tr>
+      <tr>
+        <td>US Citizen:</td><td>true</td>
+      </tr>
+      <tr>
+        <td>Degree Level:</td><td>B.S</td>
+      </tr>
+      <tr>
+        <td>Position Type:</td><td>Internship</td>
+      </tr>
+
+      
+
+  </tbody>
+</table>
+    <p> If you need to cancel or add an event, please contact the Coordinator.</p>
+    <p>Thank you for participating  and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35mTimeslot Load (0.1ms)[0m  SELECT "timeslots".* FROM "timeslots" INNER JOIN "students_timeslots" ON "timeslots"."id" = "students_timeslots"."timeslot_id" WHERE "students_timeslots"."student_id" = $1  [["student_id", 8]]
+Redirected to http://test.host/students/8
+Completed 302 Found in 10ms (ActiveRecord: 1.8ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('string@ata.edu') LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."email" = 'string@ata.edu' LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."UIN" = '123232123' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Tome"], ["UIN", "123232123"], ["email", "string@ata.edu"], ["US_Citizen", "t"], ["degree", "B.S"], ["position_type", "Internship"], ["created_at", "2016-10-20 21:21:20.374494"], ["updated_at", "2016-10-20 21:21:20.374494"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StudentsController#update as HTML
+  Parameters: {"student"=>{"name"=>"nil", "UIN"=>"nil", "email"=>"string@ata.edu", "US_Citizen"=>true, "degree"=>"B.S", "position_type"=>"Internship"}, "id"=>"9"}
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 9]]
+  [1m[35m (0.2ms)[0m  SELECT "events"."id", "events"."name", "events"."event_date", "events"."start_time", "events"."end_time" FROM "events" WHERE (for_student = true)
+  [1m[36m (0.1ms)[0m  [1mSELECT "events"."id", "events"."name" FROM "events" WHERE (for_student = true)[0m
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1  [["id", 9]]
+  [1m[36mTimeslot Load (0.1ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" INNER JOIN "students_timeslots" ON "timeslots"."id" = "students_timeslots"."timeslot_id" WHERE "students_timeslots"."student_id" = $1[0m  [["student_id", 9]]
+  [1m[35mTimeslot Load (0.1ms)[0m  SELECT "timeslots".* FROM "timeslots" INNER JOIN "students_timeslots" ON "timeslots"."id" = "students_timeslots"."timeslot_id" WHERE "students_timeslots"."student_id" = $1  [["student_id", 9]]
+  [1m[36m (0.1ms)[0m  [1mSELECT "events"."name" FROM "events" WHERE (for_student = true)[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE (LOWER("students"."email") = LOWER('string@ata.edu') AND "students"."id" != 9) LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students" WHERE ("students"."email" = 'string@ata.edu' AND "students"."id" != 9) LIMIT 1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE ("students"."UIN" = 'nil' AND "students"."id" != 9) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT "events"."id", "events"."name" FROM "events" WHERE (for_student = true)[0m
+Redirected to http://test.host/students/9/edit
+Completed 302 Found in 7ms (ActiveRecord: 1.7ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('string@ata.edu') LIMIT 1[0m
+  [1m[35mStudent Exists (0.1ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."email" = 'string@ata.edu' LIMIT 1
+  [1m[36mStudent Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."UIN" = '123232123' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Tome"], ["UIN", "123232123"], ["email", "string@ata.edu"], ["US_Citizen", "t"], ["degree", "B.S"], ["position_type", "Internship"], ["created_at", "2016-10-20 21:21:20.386741"], ["updated_at", "2016-10-20 21:21:20.386741"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StudentsController#update as HTML
+  Parameters: {"student"=>{"name"=>"nil", "UIN"=>"nil", "email"=>"string@ata.edu", "US_Citizen"=>true, "degree"=>"B.S", "position_type"=>"Internship"}, "id"=>"10"}
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1  [["id", 10]]
+  [1m[36m (0.2ms)[0m  [1mSELECT "events"."id", "events"."name", "events"."event_date", "events"."start_time", "events"."end_time" FROM "events" WHERE (for_student = true)[0m
+  [1m[35m (0.1ms)[0m  SELECT "events"."id", "events"."name" FROM "events" WHERE (for_student = true)
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 10]]
+  [1m[35mTimeslot Load (0.1ms)[0m  SELECT "timeslots".* FROM "timeslots" INNER JOIN "students_timeslots" ON "timeslots"."id" = "students_timeslots"."timeslot_id" WHERE "students_timeslots"."student_id" = $1  [["student_id", 10]]
+  [1m[36mTimeslot Load (0.1ms)[0m  [1mSELECT "timeslots".* FROM "timeslots" INNER JOIN "students_timeslots" ON "timeslots"."id" = "students_timeslots"."timeslot_id" WHERE "students_timeslots"."student_id" = $1[0m  [["student_id", 10]]
+  [1m[35m (0.1ms)[0m  SELECT "events"."name" FROM "events" WHERE (for_student = true)
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mStudent Exists (0.1ms)[0m  SELECT  1 AS one FROM "students" WHERE (LOWER("students"."email") = LOWER('string@ata.edu') AND "students"."id" != 10) LIMIT 1
+  [1m[36mStudent Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE ("students"."email" = 'string@ata.edu' AND "students"."id" != 10) LIMIT 1[0m
+  [1m[35mStudent Exists (0.1ms)[0m  SELECT  1 AS one FROM "students" WHERE ("students"."UIN" = 'nil' AND "students"."id" != 10) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT "events"."id", "events"."name" FROM "events" WHERE (for_student = true)
+Redirected to http://test.host/students/10/edit
+Completed 302 Found in 6ms (ActiveRecord: 1.4ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mStudent Exists (0.1ms)[0m  SELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('string@ata.edu') LIMIT 1
+  [1m[36mStudent Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."email" = 'string@ata.edu' LIMIT 1[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."UIN" = '123232123' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Tome"], ["UIN", "123232123"], ["email", "string@ata.edu"], ["US_Citizen", "t"], ["degree", "B.S"], ["position_type", "Internship"], ["created_at", "2016-10-20 21:21:20.398163"], ["updated_at", "2016-10-20 21:21:20.398163"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "students"[0m
+Processing by StudentsController#destroy as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1  [["id", 11]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "students_timeslots" WHERE "students_timeslots"."student_id" = $1  [["student_id", 11]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "students" WHERE "students"."id" = $1[0m  [["id", 11]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  Rendered user_mailer/stu_del.html.erb within layouts/mailer (0.3ms)
+
+UserMailer#stu_del: processed outbound mail in 8.0ms
+
+Sent mail to string@ata.edu (1.6ms)
+Date: Thu, 20 Oct 2016 16:21:20 -0500
+From: 2015_IAP@cse.tamu.edu
+To: string@ata.edu
+Message-ID: <58093550644f2_b6b83ff02043f9f44577e@dhcp-10-202-193-229.tamulink.tamu.edu.mail>
+Subject: Registration Cancelled
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Registration Cancelled.</h1>
+    <p>
+      Your registration has been cancelled. Please contact the Coordinator if you did not place this request.<br>
+    </p>
+    <p>Thank you for participating and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+Redirected to http://test.host/students
+Completed 302 Found in 12ms (ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "students"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mStudent Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE LOWER("students"."email") = LOWER('string@ata.edu') LIMIT 1[0m
+  [1m[35mStudent Exists (0.1ms)[0m  SELECT  1 AS one FROM "students" WHERE "students"."email" = 'string@ata.edu' LIMIT 1
+  [1m[36mStudent Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "students" WHERE "students"."UIN" = '123232123' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("name", "UIN", "email", "US_Citizen", "degree", "position_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["name", "Tome"], ["UIN", "123232123"], ["email", "string@ata.edu"], ["US_Citizen", "t"], ["degree", "B.S"], ["position_type", "Internship"], ["created_at", "2016-10-20 21:21:20.415748"], ["updated_at", "2016-10-20 21:21:20.415748"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StudentsController#destroy as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students" WHERE "students"."id" = $1 LIMIT 1  [["id", 12]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "students_timeslots" WHERE "students_timeslots"."student_id" = $1  [["student_id", 12]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "students" WHERE "students"."id" = $1[0m  [["id", 12]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  Rendered user_mailer/stu_del.html.erb within layouts/mailer (0.0ms)
+
+UserMailer#stu_del: processed outbound mail in 0.8ms
+
+Sent mail to string@ata.edu (1.5ms)
+Date: Thu, 20 Oct 2016 16:21:20 -0500
+From: 2015_IAP@cse.tamu.edu
+To: string@ata.edu
+Message-ID: <5809355066bb7_b6b83ff02043f9f445851@dhcp-10-202-193-229.tamulink.tamu.edu.mail>
+Subject: Registration Cancelled
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Registration Cancelled.</h1>
+    <p>
+      Your registration has been cancelled. Please contact the Coordinator if you did not place this request.<br>
+    </p>
+    <p>Thank you for participating and have a great day!</p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+Redirected to http://test.host/students
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by UseraddsController#new as HTML
+  Rendered useradds/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 8ms (Views: 3.6ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/appointments" for 127.0.0.1 at 2016-10-20 16:21:20 -0500
+Processing by AppointmentsController#index as HTML
+Redirected to http://www.example.com/sessions/new
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 6ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/companies" for 127.0.0.1 at 2016-10-20 16:21:20 -0500
+Processing by CompaniesController#index as HTML
+Redirected to http://www.example.com/sessions/new
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/events" for 127.0.0.1 at 2016-10-20 16:21:20 -0500
+Processing by EventsController#index as HTML
+Redirected to http://www.example.com/sessions/new
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Started GET "/students" for 127.0.0.1 at 2016-10-20 16:21:20 -0500
+Processing by StudentsController#index as HTML
+Redirected to http://www.example.com/sessions/new
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.0ms)[0m  [1mROLLBACK[0m

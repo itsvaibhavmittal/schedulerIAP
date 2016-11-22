@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151022220106) do
+ActiveRecord::Schema.define(version: 20161102174312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20151022220106) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.integer  "timeslot_duration"
+    t.boolean  "editable",          default: true
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -77,6 +78,7 @@ ActiveRecord::Schema.define(version: 20151022220106) do
     t.string   "position_type"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "edithash"
   end
 
   create_table "students_timeslots", id: false, force: :cascade do |t|

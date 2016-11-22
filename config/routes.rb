@@ -1,13 +1,35 @@
 Rails.application.routes.draw do
-  resources :companies
-  resources :students
+  #resources :companies
+  #resources :students
+  #resources :appointments
+  #resources :events
   resources :timeslots
-  resources :appointments
-  resources :events
   get 'useradds/new'
 
   resources :useradds
   resources :sessions
+  
+  resources :students do
+    collection do
+      post 'remove_all'
+    end
+  end
+  resources :companies do
+    collection do
+      post 'remove_all'
+    end
+  end
+  resources :events do
+    collection do
+      post 'remove_all'
+    end
+  end
+  resources :appointments do
+    collection do
+      post 'remove_all'
+    end
+  end
+  
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   

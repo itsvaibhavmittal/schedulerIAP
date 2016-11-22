@@ -6,10 +6,14 @@
 
 <div id="ABC1" align="center">
   <%= link_to 'New Appointment', new_appointment_path %>
-  &nbsp&nbsp|&nbsp&nbsp
-  <%= link_to 'Generate', generate_path %>
-  <br>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <%= link_to 'Back', sessions_url %>
+  &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <%= link_to 'Delete All Appointments', remove_all_appointments_path, method: :post, data: { confirm: 'Delete All Appointment Records?' } %>
+  <br>
+  <br>
+  <%= link_to 'Generate', generate_path, class: 'btn btn-primary btn-sm' %>
+  <br>
 </div>
 <br>
 
@@ -27,7 +31,7 @@
     <p id="notice" align="center"><%= notice %></p>
 <% end %>
 
-<table align="center" border="2px" cellspacing = "0px" bordercolor = "#000000" cellpadding = "4">
+<table class="table table-hover table-bordered" align="center">
   <thead>
   <tr>
     <th>Section</th>
@@ -48,7 +52,7 @@
         <td><%= appointment.UIN %></td>
         <td><%= link_to 'Show', appointment %></td>
         <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
-        <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
       <tr></tr>
   <% end %>

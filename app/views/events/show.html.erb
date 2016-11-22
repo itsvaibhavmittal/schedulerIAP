@@ -2,6 +2,11 @@
   <p id="notice"><%= notice %></p>
 
   <p>
+    <strong>Editable for Students:</strong>
+    <%= @event.editable %>
+  </p>
+
+  <p>
     <strong>Event name:</strong>
     <%= @event.name %>
   </p>
@@ -39,5 +44,6 @@
   </p>
 
   <%= link_to 'Edit', edit_event_path(@event) %> |
-  <%= link_to 'Back', events_path %>
+  <%= link_to 'Back', events_path %> |
+  <%= link_to 'Export to Excel', event_path(format: "xls") %>
 </div>

@@ -5,7 +5,8 @@ class AppointmentsController < ApplicationController
   # GET /appointments
   # GET /appointments.json
   def index
-    @appointments = Appointment.all.order(:section, :time_slot)
+    # Sort appointments by section, then by timeslot
+    @appointments = Appointment.all.order(:section, :time_slot) 
   end
 
   # GET /appointments/1
@@ -29,7 +30,8 @@ class AppointmentsController < ApplicationController
 
     respond_to do |format|
       if @appointment.save
-        format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' }
+        # Standard rails behavior. Save appointment and redirect to /appointments/id
+        format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' } 
         format.json { render :show, status: :created, location: @appointment }
       else
         format.html { render :new }
@@ -43,6 +45,7 @@ class AppointmentsController < ApplicationController
   def update
     respond_to do |format|
       if @appointment.update(appointment_params)
+        # Standard rails behavior. Update appointment with new parameters and redirect to /appointments/id
         format.html { redirect_to @appointment, notice: 'Appointment was successfully updated.' }
         format.json { render :show, status: :ok, location: @appointment }
       else
@@ -55,27 +58,39 @@ class AppointmentsController < ApplicationController
   # DELETE /appointments/1
   # DELETE /appointments/1.json
   def destroy
+    # Standard Rails behavior. Delete appointment with given id.
     @appointment.destroy
     respond_to do |format|
       format.html { redirect_to appointments_url, notice: 'Appointment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
-
-  helper_method :generate
+  
+  def remove_all
+    Appointment.destroy_all
+    flash[:notice] = "You have removed all appointments!"
+    redirect_to appointments_path
+  end
+  
+  # Custom helper method to generate appointments
+  helper_method :generate 
 
   def generate
-    @studentfinish = []
-    @errormessage = ["Error timeslot Below:"]
+    @studentfinish = [] 
+    @errormessage = ["Error timeslot Below:"] 
     Appointment.delete_all
 
-    events = Event.all
+    events = Event.all 
+
+    # Match each event
     events.each do |event|
       matchappsection(event)
     end
 
     flag = 0
     puts 'check if all student finish'
+
+    #Throw flags for each student that wasn't able to finish
     print @studentfinish
     @studentfinish.each do |x|
       if x == true
@@ -83,6 +98,8 @@ class AppointmentsController < ApplicationController
 
       end
     end
+
+    # Check all flags and flash appropriate notice
     if flag == 0
       redirect_to appointments_url, notice: 'Appointment was successfully generated.'
     else
@@ -105,11 +122,14 @@ class AppointmentsController < ApplicationController
   end
 
   ###############################################################
-  def matchappsection(event)
 
-    slots = event.timeslots
+  # This function splits the event into timeslots and calls matchapp on each appropriated slot.
+  def matchappsection(event)
+    slots = event.timeslots # Grab the event's timeslots
     puts 'print time slot'
     puts slots
+
+    # For each slot, match an appropriate appointment.
     slots.each do |timeslot|
       puts 'current select'
       puts timeslot
@@ -120,16 +140,23 @@ class AppointmentsController < ApplicationController
 
 
   ###############################################################
+
+  # This function matches a student and company for an appointment in the given timeslot for the given event
   def matchapp(timeslot, event)
 
+    # Grab list of students signed up for the given timeslot
     @students = timeslot.students.collect {|item| [item.name, item.UIN, item.email, item.US_Citizen, item.degree, item.position_type]}
 
+    # Grab list of companies signed up for the given timeslot
     event_companies = event.companyevents.where("representatives > 0").collect {|item| [item.company_id, item.representatives]}
 
+    # Initialize lists for each type of company membership
     @companyplat = {}
     @companygold = {}
     @companysilver = {}
     @companybronze = {}
+
+    # Sort companies into respective lists
     event_companies.each do |item|
       company = Company.find(item[0])
       if(company.sponsor_level == 'Platinum')
@@ -143,6 +170,7 @@ class AppointmentsController < ApplicationController
       end
     end
 
+    # Match companies to appointments based on priority of membership
     if @companyplat.length>0 && @students.length>0
       matchappoint(timeslot, event, @companyplat)
     end
@@ -159,17 +187,20 @@ class AppointmentsController < ApplicationController
       matchappoint(timeslot, event, @companybronze)
     end
 
+    # Merge companies not paired.
     @comremain = {}
     @comremain.merge!(@companyplat).merge!(@companygold).merge!(@companysilver).merge!(@companybronze)
 
     @comremain.delete_if{|_,x| !x.nil? and x<=0}
 
+    # Try to match remaining companies
     if @comremain.length>0 && @students.length>0
       matchappointwithout(timeslot, event, @comremain)
     end
 
     finish = @students.length>0
 
+    # Log remaining students/time slots?
     puts @students.length
     if @students.length > 0
       error = "#{event.name}"+ ':  '+ "#{timeslot.start_time.strftime("%I:%M%p")}" + '-' + "#{timeslot.end_time.strftime("%I:%M%p")}"
@@ -182,6 +213,8 @@ class AppointmentsController < ApplicationController
 
 
   ##############################################################
+
+  # Match student with remaining compaines/timeslots
   def matchappointwithout(timeslot, event, companies)
     stuuin=[];
     totalrep = 0;
@@ -218,6 +251,8 @@ class AppointmentsController < ApplicationController
   end
 
   ###############################################################
+
+  # Standard algorithm for matching students to companies. 
   def matchappoint(timeslot, event, companies)
     stuuin=[];
     @students.each do |student|

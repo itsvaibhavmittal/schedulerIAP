@@ -15,7 +15,12 @@
     <font size="4px">
       <br>
       <div class="field">
-
+        <strong><%= f.label :editable, "Editable for Students" %></strong><br>
+        <font size="2px"><%= "Can students change their responses?" %></font><br>
+        <%= f.check_box :editable%>
+      </div>
+      
+      <div class="field">
         <strong><%= f.label :name ,"Event Name" %></strong><br>
         <font size="2px"><%= "Enter name of the event you want to add." %></font><br>
         <%= f.text_field :name, :placeholder => "Event Name", class: 'form-control no-radius width_300' %>
