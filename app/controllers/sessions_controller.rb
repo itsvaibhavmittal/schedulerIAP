@@ -1,35 +1,40 @@
-class SessionsController < ApplicationController  
+class SessionsController < ApplicationController
 
   before_filter :authorize, only: [:index, :destroy, :show], :except => :new_session_path
   
-  def new  
-  end  
+  # Set flash to html safe when needed, allows links in flash
+  before_filter -> { flash.now[:notice] = flash[:notice].html_safe if flash[:html_safe] && flash[:notice] }
 
+  ## Login page
+  def new
+  end
+
+  ## Empty page with links to the rest of the views
   def index
-    
-
   end
 
-  def create  
-    useradd = Useradd.find_by(email: params[:session][:email].downcase)  
+  ## Login actions
+  def create
+    useradd = Useradd.find_by(email: params[:session][:email].downcase)
 
+    # Login is successful
     if useradd && useradd.authenticate(params[:session][:password])
-      session[:useradd_id] = useradd.id       
-      flash[:notice] = "Weclome administrator : #{useradd.name}"  
-      redirect_to sessions_url  
-    else  
-
+      session[:useradd_id] = useradd.id
+      flash[:notice] = "Weclome administrator : #{useradd.name}"
+      redirect_to sessions_url
+    else # Login is not successful
       flash.now[:danger] = 'Invalid email/password combination' # Not quite right!
-      render 'new' 
-      #redirect_to new_session_path  
-    end  
+      render 'new'
+      #redirect_to new_session_path
+    end
   end
 
+  ## Logout function
   def del
         log_out
-        redirect_to new_session_path, notice: 'Successfully Log Out!' 
-  end 
-end  
+        redirect_to new_session_path, notice: 'Successfully Log Out!'
+  end
+end
 
 
 

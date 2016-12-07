@@ -12,9 +12,10 @@
 <br>
 
 <div style="margin-left:50px; margin-right:50px;">
-<table align="center" border="2px" cellspacing = "0px" bordercolor = "#000000" cellpadding = "4">
+<table class="table table-hover table-bordered" align="center">  
   <thead>
   <tr>
+    <th>Editable for Students</th>
     <th>Event Date</th>
     <th>Event Name</th>
     <th>Timeslots</th>
@@ -28,6 +29,11 @@
   <tbody>
   <% @events.each do |event| %>
       <tr>
+        <%if event.editable %>
+        <td><%= "✓" %></td>
+        <%else%>
+        <td><%= "X" %></td>
+        <%end%>
         <td><%= event.event_date %></td>
         <td><%= event.name %></td>
         <td><table cellspacing="0px", border="0px">
@@ -42,7 +48,7 @@
         <td><%= event.end_time.strftime("%I:%M%p") %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
   <% end %>
   </tbody>

@@ -2,7 +2,7 @@
   <% provide(:title, "Log in") %>
 
   <p>Please Log in to continue.</p>
-  <div class="notice"><%= flash[:danger] %></div>
+  <div class="notice"><%= flash[:danger] %> <%= notice %></div>
   <div class="row">
     <div class="col-xs-4">
       <%= form_for(:session, url: login_path) do |f| %>

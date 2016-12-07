@@ -27,7 +27,7 @@
     <p id="notice" align="center"><%= notice %></p>
 <% end %>
 
-<table align="center" border="2px" cellspacing = "0px" bordercolor = "#000000" cellpadding = "4">
+<table class="table table-hover table-bordered" align="center">
   <thead>
   <tr>
     <th>Section</th>
@@ -48,7 +48,7 @@
         <td><%= appointment.UIN %></td>
         <td><%= link_to 'Show', appointment %></td>
         <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
-        <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
       <tr></tr>
   <% end %>

@@ -10,9 +10,12 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap.css";
+@import "bootstrap.min.css";
+@import "custom.scss";
 
 /* sidebar */
 
@@ -20,7 +23,7 @@ html, body {
    margin-top: 100px ;
    margin-left: auto;
    margin-right: auto;
-   background-color: #FFEECC;
+   background-color: #f9f9f9;
    }
 
 .button{
@@ -58,8 +61,9 @@ width: 300px;
   position: absolute;
   top: 0px ;
   left: 0px;
+  bottom: 0px;
     width: 100%;
-    height: 170px;
+    height: 130px;
     background-color: #500000;
 }
 
@@ -107,6 +111,10 @@ input, textarea, select, .uneditable-input {
   /*@include box_sizing;*/
 }
 
+select:disabled {
+    color: #999;
+}
+
 input {
   height: auto
   !important;
@@ -120,100 +128,26 @@ input {
   }
 }
 
+.footerholder {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+}
+
 #fixed-footer{
-   color:#333333; text-align:center;
-  
+  color:#575757;
+  text-align:center;
+  height: auto;
+  margin: auto;
   width:300px;
-  position:fixed; bottom:0; left:75%;
-  margin-right:-300px;
-  _position: absolute; /* position fixed for IE6 */
-  _top:expression(documentElement.scrollTop+documentElement.clientHeight-this.clientHeight-4);
-  z-index:4;
 }
 
 td{
  text-align: center;
 }
 
-#globalnav {
-  display: block;
-  text-align: center;
-  padding:1em 1em 1.75em 1em;
-  margin: 0 0 0px 0px;
-  list-style:none;
-  line-height:1em;
-}
-
-#globalnav LI {
-  text-align: center;
-  display: inline-block;
-  margin:0;
-  padding:0;
-}
-
-#globalnav A {
-  display:block;
-  color:white;
-  text-decoration:none;
-  font-weight:bold;
-  background:#500000;
-  margin:0;
-  padding:0.25em 1em;
-  border-left:1px solid #fff;
-  border-top:1px solid #fff;
-  border-right:1px solid #aaa;
-  border-bottom:1px solid #fff;
-}
-
-#globalnav A:hover,
-#globalnav A:active,
-#globalnav A.here:link,
-#globalnav A.here:visited {
-  background:#bbb;
-}
-
-#globalnav A.here:link,
-#globalnav A.here:visited {
-  position:relative;
-  z-index:102;
-}
-
-/*subnav*/
-
-#globalnav UL {
-  display: block;
-  text-align: center;
-  left:0;
-  top:1.5em;
-  background:#bbb;
-  width:100%;
-  margin:0;
-  padding:0.25em 0.25em 0.25em 1em;
-  list-style:none;
-  border-top:1px solid #fff;
-}
-
-#globalnav UL LI {
-  float:left;
-  display:block;
-  margin-top:1px;
-}
-
-#globalnav UL A {
-  background:#bbb;
-  color:#fff;
-  display:inline;
-  margin:0;
-  padding:0 1em;
-  border:0
-}
-
-#globalnav UL A:hover,
-#globalnav UL A:active,
-#globalnav UL A.here:link,
-#globalnav UL A.here:visited {
-  color:#444;
-}
 
 .link-color{
     color: #FF0000;

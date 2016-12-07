@@ -1,4 +1,5 @@
- rails console 下：
+Under rails console:
+
 >> Useradd.create(name: "wang", email: "wang@tamu.edu", password: "123456", password_confirmation: "123456")
 
-然后想要新建用户直接在students那个界面里面的sign up链接就行了
+New user can be created under the "student" interface by clicking "sign up"

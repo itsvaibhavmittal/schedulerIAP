@@ -3,12 +3,15 @@ class EventsController < ApplicationController
  #<><><><>!!!!!!!!!!!! Comment this out for rspec !!!!!!!!!!!!!!!  
 
   before_filter :authorize, only: [:index, :destroy, :new, :show], :except => :new_session_path
+  ## require authorization from application_controller
   # GET /events
   # GET /events.json
   def index
     @events = Event.all.order(:event_date, :name)
     @event_slots = get_timeslots(@events)
   end
+  ## provide students @event_slots of events to select from instead of manually entering
+  ## event_slots are defined as slots for all events, may need to change
 
   # GET /events/1
   # GET /events/1.json
@@ -20,6 +23,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    @event.editable = true
     @unedit = false
     @button_value ="Create"
   end
@@ -37,7 +41,9 @@ class EventsController < ApplicationController
     date1 = @event.event_date
     @event.start_time = @event.start_time.change(day:date1.day, year:date1.year, month:date1.month)
     @event.end_time = @event.end_time.change(day:date1.day, year:date1.year, month:date1.month)
-
+	## may include column of event location for the purpose of managing/sending emails
+	## lunch time between time slots?
+	
     respond_to do |format|
       if @event.save
         timeslot_start_time = @event.start_time
@@ -59,7 +65,8 @@ class EventsController < ApplicationController
     end
 
   end
-
+		## @unedit value used in views\events\_form.html.erb
+  
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
@@ -92,6 +99,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  ## only show related events to companies/students instead of all?
   def get_timeslots(events)
     event_slots = Hash.new
     events.each do |event|
@@ -105,6 +113,6 @@ class EventsController < ApplicationController
   end
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
-    params.require(:event).permit(:name, :event_date, :start_time, :end_time, :for_student, :for_company, :max_students, :timeslot_duration)
+    params.require(:event).permit(:name, :event_date, :start_time, :end_time, :for_student, :for_company, :max_students, :timeslot_duration, :editable, :careerfair)
   end
 end

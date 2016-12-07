@@ -65,9 +65,16 @@
 
 
     <div class="field"><font size="3.2px">
-      <% @event_details.each do |id,name,date,start,en| %>
+      <% @event_details.each do |id,name,date,start,en,editable| %>
           <%= f.label  "#{name}" , "• " + name + DateTime.parse("#{date}").strftime(" on %A %m-%d-%Y") + DateTime.parse("#{start}").strftime(" from %I:%M%p") + DateTime.parse("#{en}").strftime(" to %I:%M%p")  %><br>
-          <%= select_tag"#{name}", options_for_select($event_slots[id], $selected_slots[id]), :prompt=>"---Please select time for "+name+" ---" %> <br>
+          <% if editable %>
+            <%= select_tag"#{name}", options_for_select($event_slots[id], $selected_slots[id]), :prompt=>"---Please select time for "+name+" ---" %> <br>
+          <% elsif @logged_in %>
+            <%= select_tag"#{name}", options_for_select($event_slots[id], $selected_slots[id]), :prompt=>"---Please select time for "+name+" ---" %> - Warning: Disabled for students to add / edit <br>
+          <% else %>
+            <%= select_tag"disabled_#{name}", options_for_select($event_slots[id], $selected_slots[id]), :prompt=>"Not Attend", :disabled => true %> <br>
+            <%= hidden_field_tag name, $selected_slots[id] %>
+          <% end %>
       <% end %>
     </div>
     <br>

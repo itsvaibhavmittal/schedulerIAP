@@ -5,6 +5,7 @@ class CompaniesController < ApplicationController
   before_filter :authorize, only: [:destroy, :index], :except => :new_session_path
   # GET /companies
   # GET /companies.json
+  # The list of all companies and events. Fed to the companies index view, where the main display logic is.
   def index
     @companies = Company.all.order(:name)
     @events = Event.where("for_company = true")
@@ -13,6 +14,9 @@ class CompaniesController < ApplicationController
 
   # GET /companies/1
   # GET /companies/1.json
+  # The show page for an individual company. Fed to the companies show view.
+  # Not entirely sure why they want you to be logged in to see this, but they do. Likely a protection of the contact information?
+  # Most of the display logic is on the show view page.
   def show
     @reps = @company.companyevents.collect(&:representatives)
     unless log_in? || cus_indentify(get_id)
@@ -23,20 +27,22 @@ class CompaniesController < ApplicationController
 
 
   # GET /companies/new
+  # The display logic is almost entirely contained in the _form company view, I believe.
   def new
     @company = Company.new
     @company.companyevents.build
 
-    @eves = Event.where("for_company = true").pluck(:id, :name, :event_date, :start_time, :end_time)
-    @it = 0
-    @new_flag = 1
+    @eves = Event.where("for_company = true").pluck(:id, :name, :event_date, :start_time, :end_time, :careerfair)
+    @it = 0         #Apparently an iterator value.
+    @new_flag = 1   #Used in the companies _form view
     @reps = @company.companyevents.collect(&:representatives)
   end
 
 
   # GET /companies/1/edit
+  # Uses the _form company view for the main display logic. The actual display happens in the edit company view.
   def edit
-    @eves = Event.where("for_company = true").pluck(:id, :name, :event_date, :start_time, :end_time)
+    @eves = Event.where("for_company = true").pluck(:id, :name, :event_date, :start_time, :end_time, :careerfair)
     @it = 0
     @new_flag = 0
     eve_ids = Event.where("for_company = true").pluck(:id)
@@ -59,6 +65,8 @@ class CompaniesController < ApplicationController
 
   # POST /companies
   # POST /companies.json
+  # The actual saving of the created company.
+  # Also should email the new contact with the details as a confirmation.
   def create
     @company = Company.new(company_params)
     eve_id = Event.where("for_company = true").pluck(:id)
@@ -72,12 +80,13 @@ class CompaniesController < ApplicationController
           i = i + 1
         end
 
-        UserMailer.com_reg(@company).deliver_now
+        # This was one use of the previous broken mailer. Replace this with the new mailer, and remove this comment.
+        # UserMailer.com_reg(@company).deliver_now
 
         format.html { redirect_to @company, notice: 'Company was successfully created.' }
         format.json { render :show, status: :created, location: @company }
       else
-        @eves = Event.where("for_company = true").pluck(:id, :name, :event_date, :start_time, :end_time)
+        @eves = Event.where("for_company = true").pluck(:id, :name, :event_date, :start_time, :end_time, :careerfair)
         @it = 0
         @new_flag = 0
         @reps = @company.companyevents.collect(&:representatives)
@@ -90,6 +99,8 @@ class CompaniesController < ApplicationController
 
   # PATCH/PUT /companies/1
   # PATCH/PUT /companies/1.json
+  # Update a current company.
+  # Also emails the contact as a confirmation.
   def update
     respond_to do |format|
       if @company.update(company_params)
@@ -99,12 +110,14 @@ class CompaniesController < ApplicationController
           ce.update(event_id: eve_id[it])
           it = it + 1
         end
-        UserMailer.com_reg(@company).deliver_now
+        
+        # This was one use of the previous broken mailer. Replace this with the new mailer, and remove this comment.
+        # UserMailer.com_reg(@company).deliver_now
         
         format.html { redirect_to @company, notice: 'Company was successfully updated.' }
         format.json { render :show, status: :ok, location: @company }
       else
-        @eves = Event.where("for_company = true").pluck(:id, :name, :event_date, :start_time, :end_time)
+        @eves = Event.where("for_company = true").pluck(:id, :name, :event_date, :start_time, :end_time, :careerfair)
         @it = 0
         @new_flag = 0
         @reps = @company.companyevents.collect(&:representatives)
@@ -118,11 +131,13 @@ class CompaniesController < ApplicationController
 
   # DELETE /companies/1
   # DELETE /companies/1.json
+  # Deletes a company and emails the old contact.
   def destroy
     @company.companyevents.destroy_all
     @company.destroy
     respond_to do |format|
-      UserMailer.com_del(@company).deliver_now
+      # This was one use of the previous broken mailer. Replace this with the new mailer, and remove this comment.
+      # UserMailer.com_del(@company).deliver_now
       format.html { redirect_to companies_url, notice: 'Company was successfully destroyed.' }
       format.json { head :no_content }
     end

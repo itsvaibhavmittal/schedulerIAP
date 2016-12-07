@@ -12,6 +12,10 @@ Scenario: Log in with incorrect user information
 	And I press "Log in"
 	Then I should be on the login page
 	And I should see "Invalid email/password combination"
+	
+Scenario: Try to navigate to locked student page
+	Given I am on the students page
+	Then I should be on the home page
 
 Scenario: Log in with correct user information
 	Given I am on the home page

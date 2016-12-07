@@ -31,7 +31,7 @@ Feature: Administrator can manage Appointments
     And I fill in "company[rep_2]" with "Vaibhav Mittal"
     And I fill in "Name" with "Gao Zhuoyang"
     And I fill in "Email" with "trailblaze@tamu.edu"
-    And I select "Silver" from "Select your company's sponsor level"
+    And I select "Silver" from "Select your company's membership level"
     And I select "US Citizen Only" from "Select if you hire US citizens only, or not"
     And I select "Internship" from "Select the job type you are offering"
   	And I check "company_student_level_bs"
@@ -46,7 +46,7 @@ Feature: Administrator can manage Appointments
     And I fill in "company[rep_2]" with "Vaibhav Mittal"
     And I fill in "Name" with "Gao Zhuoyang"
     And I fill in "Email" with "tralblaz@tamu.edu"
-    And I select "Silver" from "Select your company's sponsor level"
+    And I select "Gold" from "Select your company's membership level"
     And I select "US Citizen Only" from "Select if you hire US citizens only, or not"
     And I select "Internship" from "Select the job type you are offering"
   	And I check "company_student_level_bs"
@@ -61,7 +61,7 @@ Feature: Administrator can manage Appointments
     And I fill in "company[rep_2]" with "Vaibhav Mittal"
     And I fill in "Name" with "Gao Zhuoyang"
     And I fill in "Email" with "trailblaz@tamu.edu"
-    And I select "Bronze" from "Select your company's sponsor level"
+    And I select "Bronze" from "Select your company's membership level"
     And I select "US Citizen Only" from "Select if you hire US citizens only, or not"
     And I select "Internship" from "Select the job type you are offering"
   	And I check "company_student_level_bs"
@@ -76,7 +76,7 @@ Feature: Administrator can manage Appointments
     And I fill in "company[rep_2]" with "Vaibhav Mittal"
     And I fill in "Name" with "Gao Zhuoyang"
     And I fill in "Email" with "trailblze@tamu.edu"
-    And I select "Platinum" from "Select your company's sponsor level"
+    And I select "Platinum" from "Select your company's membership level"
     And I select "US Citizen Only" from "Select if you hire US citizens only, or not"
     And I select "Internship" from "Select the job type you are offering"
   	And I check "company_student_level_bs"
@@ -136,3 +136,36 @@ Feature: Administrator can manage Appointments
     Given I am on the appointments page
     When I click on "Generate"
     Then I should be on the appointments page
+
+  Scenario: Update appointment
+    Given I am on the new appointment page
+    And I fill in "Section" with "Resume Clinic 1"
+    And I fill in "Time slot" with "10:30AM-11:00AM"
+    And I fill in "Company" with "Microsoft"
+    And I fill in "Student" with "NewStudent"
+    And I fill in "UIN" with "123008826"
+    When I press "Submit"
+    Given I have entered the appointment information
+    Then I should be on the view appointment page
+    When I click on "Edit"
+    Then I should be on the edit appointment's information page
+    When I press "Submit"
+    Then I should be on the view appointment page
+    
+  Scenario: Update partial appointment
+    Given I am on the new appointment page
+    And I fill in "Section" with "Resume Clinic 1"
+    And I fill in "Time slot" with "10:30AM-11:00AM"
+    And I fill in "Company" with "Microsoft"
+    And I fill in "Student" with "NewStudent2"
+    And I fill in "UIN" with "123008827"
+    When I press "Submit"
+    Given I have entered the appointment information
+    Then I should be on the view appointment page
+    When I click on "Edit"
+    Then I should be on the edit appointment's information page
+    And I fill in "Company" with ""
+    When I press "Submit"
+    Then I should be on the view appointment page
+    When I press "Submit"
+    Then I should be on the view appointment page

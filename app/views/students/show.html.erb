@@ -7,7 +7,7 @@
 </p>
 
 <p>
-  <strong>Uin:</strong>
+  <strong>UIN:</strong>
   <%= @student.UIN %>
 </p>
 
@@ -37,10 +37,10 @@
 
 
   <% $stu_slot[@student.id].each do |slot| %>
-<p>
-  <strong><%="#{slot[0]} :"%></strong>
-  <%= slot[1] %><br>
-</p>
+    <p>
+      <strong><%="#{slot[0]} :"%></strong>
+      <%= slot[1] %><br>
+    </p>
   <% end %>
 
 

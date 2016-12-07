@@ -53,4 +53,29 @@ Feature: Administrator can manage Events
     And the "Timeslot Duration" field should have the error "can't be blank"
 
     And the "For Students" checkbox should be checked
+    
+
+# Scenario to check Successful Editing
+# When all fields are entered correctly
+  Scenario: Edit the event information
+    Given I am on the new event page
+    And I fill in "Event Name" with "Mock Interview 2"
+    And I select "November 1, 2015" as the "Event Date"
+    And I select "10 AM:00" as "Start Time"
+    And I select "11 AM:00" as "End Time"
+    And I check "For Students"
+    And I fill in "Student Capacity" with "20"
+    And I fill in "Timeslot Duration" with "20"
+    When I press "Create"
+    Given I have entered the event's information
+    Then I should be on the view event information page
+    When I click on "Edit"
+    Then I should be on the edit event's information page
+    When I press "Edit"
+    Then I should be on the view event information page
+    When I click on "Edit"
+    Then I should be on the edit event's information page
+    And I fill in "Event Name" with ""
+    When I press "Edit"
+    Then I should be on the view event information page
 
